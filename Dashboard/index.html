@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinec SSSQ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .menu {
+            width: 250px;
+            background-color: #f1f1f1;
+            height: 100%;
+            position: fixed;
+            overflow: auto;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            padding: 20px;
+        }
+        .button {
+            background-color: transparent;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #ddd;
+        }
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .login-button, .logout-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .login-button:hover, .logout-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Cinec SSSQ</div>
+    </div>
+    <div class="menu">
+        <button class="button">Dashboard</button>
+        <button class="button">Account</button>
+        <button class="button">Add/Remove User</button>
+        <button class="button">View Status</button>
+        <button class="button">Generate/View Reports</button>
+        <button class="login-button">Login</button>
+        <button class="logout-button">Logout</button>
+    </div>
+    <div class="content">
+        <div class="message">
+            <p id="greeting">Hi, Good morning!</p>
+            <p>Welcome to Cinec SSSQ.</p>
+        </div>
+    </div>
+    <script>
+        // JavaScript to change the greeting based on time of day
+        const greeting = document.getElementById('greeting');
+        const now = new Date();
+        const hours = now.getHours();
+        
+        if (hours >= 5 && hours < 12) {
+            greeting.textContent = 'Good morning!';
+        } else if (hours >= 12 && hours < 17) {
+            greeting.textContent = 'Good afternoon!';
+        } else {
+            greeting.textContent = 'Good evening!';
+        }
+    </script>
+</body>
+</html>
