@@ -29,13 +29,13 @@ $sql = "INSERT INTO request_form (faculty, department, program_name, program_cod
 
 if ($conn->query($sql) === TRUE) {
     // Get the last inserted form_id
-    $form_id = $conn->insert_id;
+    $request_id = $conn->insert_id;
 
     // Insert lecturer names into the lecturer_names table
     foreach ($_POST['lecture_name'] as $lecturer_name) {
         $lecturer_name = $conn->real_escape_string($lecturer_name); // Sanitize input
-        $sql = "INSERT INTO lecturer_names (form_id, lecturer_name)
-                VALUES ($form_id, '$lecturer_name')";
+        $sql = "INSERT INTO lecturer_names (request_id, lecturer_name)
+                VALUES ($request_id, '$lecturer_name')";
 
         if (!$conn->query($sql)) {
             echo "Error inserting lecturer names: " . $conn->error;
