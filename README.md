@@ -3,7 +3,9 @@
 <h1>Use the below queries to create the database and tables before you run the system.</h1>
 CREATE DATABASE CINEC_SSSQ;
 <br>
+<br>
 USE CINEC_SSSQ;
+<br>
 <br>
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,6 +14,7 @@ CREATE TABLE users (
     user_type ENUM('Client', 'Admin', 'Super Admin') NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE
 );
+<br>
 <br>
 CREATE TABLE IF NOT EXISTS request_form (
     request_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,6 +29,7 @@ CREATE TABLE IF NOT EXISTS request_form (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+<br>
 <br>
 CREATE TABLE IF NOT EXISTS lecturer_names (
     id INT AUTO_INCREMENT PRIMARY KEY,
