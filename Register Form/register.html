@@ -22,26 +22,26 @@
 <body>
   <div class="container">
     <h2 class="text-center">Registration</h2>
-    <form>
+    <form method="post" action="register.php">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="Name" placeholder="Enter Name" required >
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required >
       </div>
       <div class="form-group">
-        <label for="id">ID</label>
-        <input type="id" class="form-control" id="id" placeholder="Enter id" required>
+        <label for="user_type">User Type</label>
+        <input type="id" class="form-control" name="user_type" id="id" placeholder="Enter user type" required >
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Enter password" required >
       </div>
       <div class="form-group">
         <label for="confirmPassword">Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" required name="confirmPassword">
       </div>
       <button type="submit" class="btn btn-primary btn-block">Register</button>
     </form>
