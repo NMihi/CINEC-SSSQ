@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSSQ Form</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      th,
+      td {
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        padding-right: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <h2 style="padding-bottom: 5%" class="text-left">
+        STUDENT SATISFACTION SURVER QUESTIONNAIRE
+      </h2>
+      <p style="padding-bottom: 3%" class="text-left">
+        Dear Course Delegate/Student,<br />
+        measurement of student satisfaction is of vital impotance to eveluate
+        organization's performance. This questionnaire may help us to identify
+        Deficiencies, Strengths, weaknesses, Threats, Risks & Opportunities
+        required to be recognized. Your perception of our service will lead to
+        incremental improvements and other could be significantly benificial for
+        all interested parties. However, implementation of improvements remains
+        entirely at the discretion of the management, as proper planning,
+        allocation of funds, and the impact to the organization needed to be
+        evaluated before action. Students necessarily may not be always 'right'.
+        Complaints in particular, needed to be investigated by the relevent head
+        of Departments/Sections for validity and accuracy. Management intends to
+        fulfill needs and expectations of the student to and extent offordable
+        to the management. implementation of corrections and corrective action
+        is the responsibility of Head of Department/section.
+      </p>
+      <form action="/submit" method="post">
+        <div class="form-group">
+          <label for="Course">Course:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="CourseName"
+            placeholder="Enter Your Course Name"
+            name="name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="CourseCode">Course Code:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="CourseCode"
+            placeholder="Enter Course Code"
+            name="CourseCode"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="Batch">Batch:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Batch"
+            placeholder="Enter Your Batch"
+            name="Batch"
+            required
+          />
+        </div>
+        <!-- <form action="#" method="post">
+          <label for="calendar">Select a date:</label>
+          <input type="date" id="calendar" name="calendar">
+      </form> -->
+        <div class="form-group">
+          <label for="calendar">Date Of Survey:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="calendar"
+            placeholder="Enter Date Of Survey"
+            name="calendar"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="Name1">Mr.Dhanushka Agalakada:</label>
+          <table style="width: 100%">
+            <tr>
+              <th></th>
+              <th>Excellent</th>
+              <th>Good</th>
+              <th>Satisfactory</th>
+              <th>Poor</th>
+            </tr>
+            <tr>
+              <th>Teaching</th>
+              <td style="text-align: center">
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+            </tr>
+            <tr>
+              <th>Notes/<br />Handouts</th>
+              <td style="text-align: center">
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+            </tr>
+          </table>
+          <br />
+          <label for="Name1">Mr.Dhanushka Agalakada:</label>
+          <table style="width: 100%">
+            <tr>
+              <th></th>
+              <th>Excellent</th>
+              <th>Good</th>
+              <th>Satisfactory</th>
+              <th>Poor</th>
+            </tr>
+            <tr>
+              <th>Teaching</th>
+              <td style="text-align: center">
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+            </tr>
+            <tr>
+              <th>Notes/<br />Handouts</th>
+              <td style="text-align: center">
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="form-group">
+          <p>
+            <label for="TTLP"
+              >Teaching Training Learning Process: <br />Please Comment on
+              Standard of Course Material, Lecture Notes, Presentation &
+              Teaching Method, Attendance, Atitudes & Behaviors.
+            </label>
+          </p>
+          <textarea
+            style="width: 100%"
+            id="TTLP"
+            name="TTLP"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="Name1">Learning Environment & Insfrastructure: </label>
+          <table style="width: 100%">
+            <tr>
+              <th></th>
+              <th>Excellent</th>
+              <th>Good</th>
+              <th>Satisfactory</th>
+              <th>Poor</th>
+            </tr>
+            <tr>
+              <th>CLASSROOMS</th>
+              <td style="text-align: center">
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                OTHER <br />
+                FACILITIES
+              </th>
+              <td style="text-align: center">
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="form-group">
+          <p>
+            <label for="LEI"
+              >Learning Environment & Insfrastructure: <br />Please Comment on
+              Standard of Learning Environment / Insfrastructure / Teaching Aid
+              / Equipment.
+            </label>
+          </p>
+          <textarea
+            style="width: 100%"
+            id="TTLP"
+            name="LEI"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="Name1">Support Services: </label>
+          <table style="width: 100%">
+            <tr>
+              <th></th>
+              <th>Excellent</th>
+              <th>Good</th>
+              <th>Satisfactory</th>
+              <th>Poor</th>
+            </tr>
+            <tr>
+              <th>
+                Support Service <br />
+                from the faculty/ <br />Dept
+              </th>
+              <td style="text-align: center">
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+              <td>
+                <input type="radio" id="Name1" name="Name1" value="Name1" />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="form-group">
+          <p>
+            <label for="SS"
+              >Support Services: <br />Please Comment on Standard of Support
+              Service from the faculty/Dept.
+            </label>
+          </p>
+          <textarea
+            style="width: 100%"
+            id="SS"
+            name="Suport Service"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <p>
+            <label for="SS"
+              >Attention of management is drawn to following significant
+              important issues.
+            </label>
+          </p>
+          <textarea
+            style="width: 100%"
+            id="SS"
+            name="Suport Service"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <!-- Add Bootstrap JS and its dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
