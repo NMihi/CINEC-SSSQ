@@ -1,12 +1,5 @@
 <?php
-// Include your database connection configuration here
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "CINEC_SSSQ";
-
-// Create a database connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+include('../db_connection.php');
 
 // Check connection
 if ($conn->connect_error) {

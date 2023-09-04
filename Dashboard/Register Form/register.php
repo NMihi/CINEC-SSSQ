@@ -1,5 +1,12 @@
 <?php
-include('../db_connection.php');
+// Include your database connection configuration here
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "CINEC_SSSQ";
+
+// Create a database connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
@@ -24,11 +31,11 @@ $sql = "INSERT INTO users (name,password,user_type,email)
          if ($conn->query($sql) === TRUE ) {
                 // Get the last inserted form_id
                 $user_id = $conn->insert_id;
-                echo "<script>alert('Form data saved successfully!')</script>";
 
-                // Redirect to another HTML page
-                header("Location: ./index.html");
-                exit;
+                // // Redirect to another HTML page
+                // header("Location: ../index.html");
+                // exit;
+                echo "<script>alert('Form data saved successfully!')</script>";
                 
             } 
             else {
