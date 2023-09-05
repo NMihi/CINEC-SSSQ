@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+<?php
+// Step 3: Database Connection
+$conn = mysqli_connect("localhost", "root", "", "CINEC_SSSQ");
+$userID = $_GET['id'];
+
+// Step 4: Fetch Data
+$sql = "SELECT * FROM request_form,lecturer_names WHERE request_form.request_id = $userID";
+$result = mysqli_query($conn, $sql);
+
+// Step 5: Generate the Form
+echo '<form>';
+while ($row = mysqli_fetch_assoc($result)) {
+    echo '<input type="text" name="Course_name" value="' . $row['program_name'] . '"><br>';
+    echo '<input type="text" name="Course_Code" value="' . $row['program_code'] . '"><br>';
+    echo '<input type="text" name="batch" value="' . $row['batch_no'] . '"><br>';
+    echo '<input type="date" name="date" value="'. date('Y-m-d').'"><br>';
+    // Add more input fields for other user data
+    
+}
+
+echo '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +39,7 @@
     </h2>
     <p class="text-left">
         Dear Course Delegate/Student,<br>
-        Measurement of student satisfaction is of vital importance to evaluate organization's performance. This questionnaire may help us to identify deficiencies, strengths, weaknesses, threats, risks, and opportunities required to be recognized. Your perception of our service will lead to incremental improvements and others could be significantly beneficial for all interested parties. However, the implementation of improvements remains entirely at the discretion of the management, as proper planning, allocation of funds, and the impact on the organization need to be evaluated before action. Students necessarily may not always be 'right'. Complaints in particular need to be investigated by the relevant head of Departments/Sections for validity and accuracy. Management intends to fulfill the needs and expectations of the student to an extent affordable to the management. The implementation of corrections and corrective action is the responsibility of the Head of Department/section.
+        Measurement of student satisfaction is of vital importance to evaluate organizations performance. This questionnaire may help us to identify deficiencies, strengths, weaknesses, threats, risks, and opportunities required to be recognized. Your perception of our service will lead to incremental improvements and others could be significantly beneficial for all interested parties. However, the implementation of improvements remains entirely at the discretion of the management, as proper planning, allocation of funds, and the impact on the organization need to be evaluated before action. Students necessarily may not always be right. Complaints in particular need to be investigated by the relevant head of Departments/Sections for validity and accuracy. Management intends to fulfill the needs and expectations of the student to an extent affordable to the management. The implementation of corrections and corrective action is the responsibility of the Head of Department/section.
     </p>
     <form action="/submit" method="post">
         <div class="form-group">
@@ -157,3 +177,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+';
+// echo '</form>';
+
+// Step 8: Close Database Connection
+mysqli_close($conn);
+?>

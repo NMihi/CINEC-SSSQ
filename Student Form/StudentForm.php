@@ -8,42 +8,39 @@ if ($conn->connect_error) {
     echo "<script>console.log('connected' );</script>";
 }
 
-// Retrieve data from the form
-$program_name = $_POST['Course'];
-$program_code = $_POST['CourseCode'];
-$batch_no = $_POST['Batch'];
-$survey_date = $_POST['calendar'];
-$TTLP = $_POST['TTLP'];
-$LEI = $_POST['LEI'];
-$Suport_Service = $_POST['Suport_Service'];
-$AoM = $_POST['AoM'];
 
+// Process form data and insert into the database
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $courseName = $_POST["name"];
+    $courseCode = $_POST["CourseCode"];
+    $batch = $_POST["Batch"];
+    $surveyDate = $_POST["calendar"];
+    
+    // Insert the main survey information into the database
+    $sql = "INSERT INTO survey_responses (course_name, course_code, batch, survey_date)
+            VALUES ('$courseName', '$courseCode', '$batch', '$surveyDate')";
+    
+    if ($conn->query($sql) === TRUE) {
+        $surveyID = $conn->insert_id; // Get the ID of the inserted survey
+        
+        // Insert individual responses into the database
+        // You can use a loop to insert responses for each question
 
-// SQL query to insert data into survey_form_data table
-$sql = "INSERT INTO student_data_form (faculty, department, program_name, program_code, batch_no, semester, no_of_students, proposed_date)
-        VALUES ('$faculty', '$department', '$program_name', '$program_code', '$batch_no', '$semester', $no_of_students, '$proposed_date')";
-
-if ($conn->query($sql) === TRUE) {
-    // Get the last inserted form_id
-    $request_id = $conn->insert_id;
-
-    // Insert lecturer names into the lecturer_names table
-    foreach ($_POST['lecture_name'] as $lecturer_name) {
-        $lecturer_name = $conn->real_escape_string($lecturer_name); // Sanitize input
-        $sql = "INSERT INTO lecturer_names (request_id, lecturer_name)
-                VALUES ($request_id, '$lecturer_name')";
-
-        if (!$conn->query($sql)) {
-            echo "Error inserting lecturer names: " . $conn->error;
-            // Rollback the form_data insertion if needed
-            $conn->rollback();
-            break;
-        }
+        // Example for the "Teaching" question
+        $teachingResponse = $_POST["Name1_Teaching"];
+        $sql = "INSERT INTO survey_responses_details (survey_id, question, response)
+                VALUES ($surveyID, 'Teaching', '$teachingResponse')";
+        $conn->query($sql);
+        
+        // Add similar INSERT queries for other questions
+        
+        // Redirect to a thank you page or display a success message
+        header("Location: thank_you.html");
+        exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-    echo "Form data saved successfully!";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 // Close the database connection
