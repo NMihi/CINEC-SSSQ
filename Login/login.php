@@ -1,48 +1,51 @@
 <?php
-session_start(); // Start the session
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the user input from the form
+    $username = $_POST["email"];
+    $password = $_POST["password"];
 
-// Check if the user is already logged in; if so, redirect them to the dashboard
-if (isset($_SESSION['user_id'])) {
-    header("Location: ./Dashboard/index.html");
-    exit();
-}
+    // Replace these with your MySQL database credentials
+    $hostname = "localhost";  // Change to your MySQL server hostname
+    $username_db = "root";  // Change to your MySQL username
+    $password_db = "";  // Change to your MySQL password
+    $database = "CINEC_SSSQ";    // Change to your MySQL database name
 
-// Include the database connection file
-include('../db_connection.php');
+    // Create a database connection
+    $conn = new mysqli($hostname, $username_db, $password_db, $database);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    
-    $sql = "SELECT user_id, name, password, user_type, email FROM users WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-    
+    // Sanitize user input (for security)
+    $username = mysqli_real_escape_string($conn, $username);
+    $password = mysqli_real_escape_string($conn, $password);
+
+    // Query the database to check the username and password
+    $query = "SELECT * FROM users WHERE email='$username' AND password='$password'";
+    $result = $conn->query($query);
+
+
     if ($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
+        // User found, fetch user data
+        $user = $result->fetch_assoc();
 
-        if (password_verify($password, $row['password'])) {
-            // Password is correct; log in the user
-            $_SESSION['user_id'] = $row['user_id'];
-            $_SESSION['user_name'] = $row['email'];
-            echo "<script>alert('login successfully!')</script>";
-            header("Location: ../Dashboard/index.html"); // Redirect to the dashboard
-            exit();
-        } else {
-            $error_message = "Incorrect password";
+        // Print user information (you can customize this part)
+        if($user['user_type']=='Admin'){
+            header("Location: ../Dashboard/index.html");
+        }elseif($user['user_type']=='Client'){
+            header("Location: ../Request Form/Request.html");
+        }elseif($user['user_type']=='Super Admin'){
+            header("Location: ../Dashboard/index.html");
         }
     } else {
-        $error_message = "Email not found";
+        // Invalid login
+        echo "Invalid username or password. Please try again.";
     }
-    
-    $stmt->close();
+
+    // Close the database connection
+    $conn->close();
 }
-
-$conn->close();
 ?>
-
-
