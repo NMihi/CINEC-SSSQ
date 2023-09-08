@@ -12,15 +12,17 @@ if ($conn->connect_error) {
 
 // Retrieve data from the form
 $name = $_POST['name'];
-$password = $_POST['password'];
 $user_type = $_POST['user_type'];
+$faculty = $_POST['faculty'];
+$department = $_POST['department'];
 $email = $_POST['email'];
+$password = $_POST['password'];
 $confirmPassword = $_POST ['confirmPassword'];
 
 
 // SQL query to insert data into survey_form_data table
-$sql = "INSERT INTO users (name,password,user_type,email)
-        VALUES ('$name','$password','$user_type','$email')";
+$sql = "INSERT INTO users (name,password,faculty,department,user_type,email)
+        VALUES ('$name','$password','$faculty','$department','$user_type','$email')";
        
     
          if ($conn->query($sql) === TRUE ) {
