@@ -29,17 +29,20 @@ $sql = "INSERT INTO users (name,password,faculty,department,user_type,email)
                 // Get the last inserted form_id
                 $user_id = $conn->insert_id;
 
-
-                
-            echo "<script>alert('Form data saved successfully!')</script>";
+                // // Redirect to another HTML page
+                // header("Location: ../index.html");
+                // exit;
+                // echo "<script>alert('Form data saved successfully!')</script>";
                  // Redirect to another HTML page
-                 header("Location: ../adduser.html");
-                         exit;
+                 header("Location: ../userManagement.html");
+                 exit;
+                
+            } 
+            else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
 
-                        } 
-                        else {
-                            echo "Error: " . $sql . "<br>" . $conn->error;
-                        }
+        
 
 // Close the database connection
 $conn->close();
