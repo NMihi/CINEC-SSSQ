@@ -41,7 +41,7 @@
     </p></div>
 <?php
 // Step 3: Database Connection
-$conn = mysqli_connect("localhost", "root", "", "CINEC_SSSQ");
+include('../db_connection.php');
 $userID = $_GET['id'];
 
 // Step 4: Fetch Data
