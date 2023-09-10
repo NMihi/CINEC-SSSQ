@@ -9,10 +9,12 @@ USE CINEC_SSSQ;
 <br>
 CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(50) NOT NULL UNIQUE,
+	name VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
     user_type ENUM('Client', 'Admin', 'Super Admin') NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE
+    email VARCHAR(100) NOT NULL UNIQUE,
+    faculty VARCHAR(50)DEFAULT NULL,
+    department VARCHAR(50) DEFAULT NULL
 );
 <br>
 <br>
@@ -36,4 +38,32 @@ CREATE TABLE IF NOT EXISTS lecturer_names (
     request_id INT NOT NULL,
     lecturer_name VARCHAR(100) NOT NULL,
     FOREIGN KEY (request_id) REFERENCES request_form(request_id)
+);
+
+<br>
+<br>
+CREATE TABLE IF NOT EXISTS faculty (
+    fac_id INT AUTO_INCREMENT PRIMARY KEY,
+    faculty VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS department (
+dep_id INT AUTO_INCREMENT PRIMARY KEY,
+faculty VARCHAR(100) NOT NULL,
+department VARCHAR(100) NOT NULL,
+FOREIGN KEY (faculty) REFERENCES faculty(faculty)
+);
+
+CREATE TABLE IF NOT EXISTS course (
+course_id INT AUTO_INCREMENT PRIMARY KEY,
+course_name VARCHAR(100) NOT NULL,
+department VARCHAR(100) NOT NULL,
+FOREIGN KEY (department) REFERENCES department(department)
+);
+
+CREATE TABLE IF NOT EXISTS lecturer (
+lec_id INT AUTO_INCREMENT PRIMARY KEY,
+lec_name VARCHAR(100) NOT NULL,
+department VARCHAR(100) NOT NULL,
+FOREIGN KEY (department) REFERENCES department(department)
 );
