@@ -27,17 +27,15 @@ $sql = "INSERT INTO users (name,password,user_type,email)
                 // Get the last inserted form_id
                 $user_id = $conn->insert_id;
 
-                // // Redirect to another HTML page
-                // header("Location: ../index.html");
-                // exit;
+               
                 echo "<script>alert('Form data saved successfully!');</script>";
 
-    // Redirect to another HTML page after a short delay
-    echo "<script>
-            setTimeout(function() {
-                window.location.href = '../userManagement.html';
-            }, 0); // Redirect after 2 seconds (adjust as needed)
-          </script>";
+                // Redirect to another HTML page after a short delay
+                echo "<script>
+                            setTimeout(function() {
+                                window.location.href = '../userManagement.html';
+                                }, 0); // Redirect after 2 seconds (adjust as needed)
+                        </script>";
                  exit;
                 
             } 

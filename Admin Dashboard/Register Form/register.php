@@ -31,16 +31,15 @@ $sql = "INSERT INTO users (name,password,faculty,department,user_type,email)
 
  
                  // Display the alert using JavaScript
-    echo "<script>alert('Form data saved successfully!');</script>";
+                echo "<script>alert('Form data saved successfully!');</script>";
 
-    // Redirect to another HTML page after a short delay
-    echo "<script>
-            setTimeout(function() {
-                window.location.href = '../userManagement.html';
-            }, 0); // Redirect after 2 seconds (adjust as needed)
-          </script>";
-                 // Redirect to another HTML page
-                //  header("Location: ../userManagement.html");
+                // Redirect to another HTML page after a short delay
+                echo "<script>
+                        setTimeout(function() {
+                            window.location.href = '../userManagement.html';
+                        }, 0); // Redirect after 2 seconds (adjust as needed)
+                    </script>";
+                
                  exit;
                 
             } 
