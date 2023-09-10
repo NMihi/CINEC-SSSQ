@@ -78,7 +78,7 @@ LEI VARCHAR(50) NOT NULL,
 support_services VARCHAR(50) NOT NULL,
 support_services_comment VARCHAR(100) NOT NULL,
 AOM VARCHAR(100) NOT NULL,
-FOREIGN KEY (request_id) REFERENCES request_form(request_id),
+FOREIGN KEY (request_id) REFERENCES request_form(request_id)
 );
 
 CREATE TABLE IF NOT EXISTS submitted_lecturers (
