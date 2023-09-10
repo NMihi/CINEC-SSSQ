@@ -17,10 +17,11 @@ $batch_no = $_POST['batch_no'];
 $semester = $_POST['semester'];
 $no_of_students = $_POST['no_of_students'];
 $proposed_date = $_POST['Proposed_Date'];
+$user_id = "21";
 
 // SQL query to insert data into survey_form_data table
-$sql = "INSERT INTO request_form (faculty, department, program_name, program_code, batch_no, semester, no_of_students, proposed_date)
-        VALUES ('$faculty', '$department', '$program_name', '$program_code', '$batch_no', '$semester', $no_of_students, '$proposed_date')";
+$sql = "INSERT INTO request_form (faculty, department, program_name, program_code, batch_no, semester, no_of_students, proposed_date,user_id)
+        VALUES ('$faculty', '$department', '$program_name', '$program_code', '$batch_no', '$semester', $no_of_students, '$proposed_date','$user_id')";
 
 if ($conn->query($sql) === TRUE) {
     // Get the last inserted form_id
@@ -40,12 +41,8 @@ if ($conn->query($sql) === TRUE) {
         }
     }
 
-    
-    echo '
-    
-    http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$request_id.'
-     <br>
-    <a href="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$request_id.'">Link</a>';
+    header("Location: link.php?id=$request_id");
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

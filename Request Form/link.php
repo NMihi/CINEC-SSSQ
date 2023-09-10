@@ -4,9 +4,13 @@
     <title>Email Button</title>
   </head>
   <body>
-    <h1>Contact Us</h1>
-    <p>Click the button below to send us an email:</p>
+    <h1>CINEC SSSQ Form</h1>
+    <p>Click the button below to send the form link via email:</p>
     <button id="sendEmailButton">Send Email</button>
+
+    <?php 
+      $userID = $_GET['id'];
+    ?>
 
     <script>
       document
@@ -14,7 +18,7 @@
         .addEventListener("click", function () {
           var subject = "Regarding your website";
           var body =
-            "Hello,\n\nI would like to get in touch regarding your website.\n\n";
+            "<?php echo'http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$userID;?>";
 
           // Encode the email address, subject, and body
           subject = encodeURIComponent(subject);
