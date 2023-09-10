@@ -27,6 +27,7 @@ semester VARCHAR(50) NOT NULL,
 no_of_students INT NOT NULL,
 proposed_date DATE NOT NULL,
 user_id INT,
+link VARCHAR(100) NOT NULL,
 FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -50,7 +51,7 @@ FOREIGN KEY (faculty) REFERENCES faculty(faculty)
 );
 
 CREATE TABLE IF NOT EXISTS course (
-course_id INT AUTO_INCREMENT PRIMARY KEY,
+course_code VARCHAR(100) PRIMARY KEY,
 course_name VARCHAR(100) NOT NULL,
 department VARCHAR(100) NOT NULL,
 FOREIGN KEY (department) REFERENCES department(department)
@@ -61,4 +62,32 @@ lec_id INT AUTO_INCREMENT PRIMARY KEY,
 lec_name VARCHAR(100) NOT NULL,
 department VARCHAR(100) NOT NULL,
 FOREIGN KEY (department) REFERENCES department(department)
+);
+
+CREATE TABLE IF NOT EXISTS form_submit (
+sub_id INT AUTO_INCREMENT PRIMARY KEY,
+request_id INT NOT NULL,
+course_name VARCHAR(100) NOT NULL,
+course_code VARCHAR(50) NOT NULL,
+batch VARCHAR(100) NOT NULL,
+submitted_date DATE NOT NULL,
+TTL VARCHAR(50) NOT NULL,
+classrooms VARCHAR(50) NOT NULL,
+other_facilities VARCHAR(50) NOT NULL,
+LEI VARCHAR(50) NOT NULL,
+support_services VARCHAR(50) NOT NULL,
+support_services_comment VARCHAR(100) NOT NULL,
+AOM VARCHAR(100) NOT NULL,
+FOREIGN KEY (request_id) REFERENCES request_form(request_id),
+FOREIGN KEY (course_name) REFERENCES course(course_name),
+FOREIGN KEY (course_code) REFERENCES course(course_code),
+);
+
+CREATE TABLE IF NOT EXISTS submitted_lecturers (
+sublec_id INT AUTO_INCREMENT PRIMARY KEY,
+sub_id INT NOT NULL,
+lec_name VARCHAR(100) NOT NULL,
+teaching VARCHAR(100) NOT NULL,
+notes VARCHAR(100) NOT NULL,
+FOREIGN KEY (sub_id) REFERENCES form_submit(sub_id)
 );
