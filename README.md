@@ -79,8 +79,6 @@ support_services VARCHAR(50) NOT NULL,
 support_services_comment VARCHAR(100) NOT NULL,
 AOM VARCHAR(100) NOT NULL,
 FOREIGN KEY (request_id) REFERENCES request_form(request_id),
-FOREIGN KEY (course_name) REFERENCES course(course_name),
-FOREIGN KEY (course_code) REFERENCES course(course_code),
 );
 
 CREATE TABLE IF NOT EXISTS submitted_lecturers (
