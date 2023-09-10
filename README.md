@@ -60,8 +60,8 @@ FOREIGN KEY (dep_id) REFERENCES department(dep_id)
 CREATE TABLE IF NOT EXISTS lecturer (
 lec_id INT AUTO_INCREMENT PRIMARY KEY,
 lec_name VARCHAR(100) NOT NULL,
-department VARCHAR(100) NOT NULL,
-FOREIGN KEY (department) REFERENCES department(department)
+dep_id INT NOT NULL,
+FOREIGN KEY (dep_id) REFERENCES department(dep_id)
 );
 
 CREATE TABLE IF NOT EXISTS form_submit (
