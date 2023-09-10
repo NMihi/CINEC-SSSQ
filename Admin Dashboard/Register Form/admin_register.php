@@ -44,7 +44,10 @@ $sql = "INSERT INTO users (name,password,faculty,department,user_type,email)
                         //  header("Location: ../userManagement.html");
                          exit;
 
-        
+                        } 
+                        else {
+                            echo "Error: " . $sql . "<br>" . $conn->error;
+                        }
 
 // Close the database connection
 $conn->close();
