@@ -45,16 +45,16 @@ faculty VARCHAR(100) NOT NULL
 
 CREATE TABLE IF NOT EXISTS department (
 dep_id INT AUTO_INCREMENT PRIMARY KEY,
-faculty VARCHAR(100) NOT NULL,
+fac_id INT NOT NULL,
 department VARCHAR(100) NOT NULL,
-FOREIGN KEY (faculty) REFERENCES faculty(faculty)
+FOREIGN KEY (fac_id) REFERENCES faculty(fac_id)
 );
 
 CREATE TABLE IF NOT EXISTS course (
 course_code VARCHAR(100) PRIMARY KEY,
 course_name VARCHAR(100) NOT NULL,
-department VARCHAR(100) NOT NULL,
-FOREIGN KEY (department) REFERENCES department(department)
+dep_id INT NOT NULL,
+FOREIGN KEY (dep_id) REFERENCES department(dep_id)
 );
 
 CREATE TABLE IF NOT EXISTS lecturer (
