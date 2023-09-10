@@ -42,6 +42,7 @@ if ($conn->query($sql) === TRUE) {
 
     
     echo '
+    
     http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$request_id.'
      <br>
     <a href="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$request_id.'">Link</a>';
