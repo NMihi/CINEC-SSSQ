@@ -37,7 +37,7 @@ $sql = "INSERT INTO users (name,password,faculty,department,user_type,email)
     echo "<script>
             setTimeout(function() {
                 window.location.href = '../userManagement.html';
-            }, 2000); // Redirect after 2 seconds (adjust as needed)
+            }, 0); // Redirect after 2 seconds (adjust as needed)
           </script>";
                  // Redirect to another HTML page
                 //  header("Location: ../userManagement.html");
