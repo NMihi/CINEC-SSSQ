@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 
 // Retrieve data from the form
 $name = $_POST['name'];
-$user_type = $_POST['user_type'];
+$user_type ='Client';
 $faculty = $_POST['faculty'];
 $department = $_POST['department'];
 $email = $_POST['email'];
@@ -29,12 +29,18 @@ $sql = "INSERT INTO users (name,password,faculty,department,user_type,email)
                 // Get the last inserted form_id
                 $user_id = $conn->insert_id;
 
-                // // Redirect to another HTML page
-                // header("Location: ../index.html");
-                // exit;
-                echo "<script>alert('Form data saved successfully!')</script>";
+ 
+                 // Display the alert using JavaScript
+    echo "<script>alert('Form data saved successfully!');</script>";
+
+    // Redirect to another HTML page after a short delay
+    echo "<script>
+            setTimeout(function() {
+                window.location.href = '../userManagement.html';
+            }, 2000); // Redirect after 2 seconds (adjust as needed)
+          </script>";
                  // Redirect to another HTML page
-                 header("Location: ../adduser.html");
+                //  header("Location: ../userManagement.html");
                  exit;
                 
             } 
