@@ -12,16 +12,21 @@
             text-align: center;
         }
         .section{
+            background-color: #fff;
+            padding: 1.8rem;
+            border-radius: 1rem;
+            box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+            transition: all 0.3s ease;
             max-width: 800px;
-            margin: 5px auto;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 15px;
+            margin: 10px auto;
+           
+            
 }
 
     .btn{
         margin-bottom: 50px;
         margin-top: 20px;
+        border-radius: 10px;
     }
 
     input[type="text"],[type="date"]{
