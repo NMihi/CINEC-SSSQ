@@ -14,7 +14,7 @@
     <div class="container">
       <h1 class="text-center">Survey Questionnaire Request</h1>
       <form method="post" action="Request.php">
-        <legend>Program Information</legend>
+        <div class="section"><legend>Program Information</legend>
         <div class="form-group">
           <label for="faculty">Faculty</label>
 
@@ -103,8 +103,9 @@
             required
           />
         </div>
-        <hr class="styled-hr" />
-        <legend>Lecturer Panel</legend>
+      </div>
+        
+        <div class="section"><legend>Lecturer Panel</legend>
 
         <div class="form-group" id="lecture-names">
           <input
@@ -120,8 +121,8 @@
           Add More Lecturers
         </button>
 
-        <hr class="styled-hr" />
-        <legend>Date</legend>
+      </div>
+        <div class="section"><legend>Date</legend>
 
         <div class="form-group">
           <label for="Proposed_Date">Proposed Date for the Survey</label>
@@ -134,9 +135,11 @@
             required
           />
         </div>
+      </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Submit</button>
       </form>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
     </div>
 
     <script>
