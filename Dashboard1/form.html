@@ -13,6 +13,44 @@
     />
     <link rel="stylesheet" href="style.css" />
 
+    
+    <style>
+        /* Container for the form cards */
+.analyse {
+position: relative; /* Make the container a positioning context for absolute positioning */
+
+/* Set a fixed height for each card to control the overlap */
+height: 300px; /* Adjust the height as needed */
+
+/* Add some margin between the cards */
+margin-bottom: -50px; /* Adjust the negative margin to control the overlap */
+}
+
+/* Individual form card */
+.forms {
+width: 100%; /* Make each card take up the full width of the container */
+/* border: 1px solid #ccc; Add a border for visual separation */
+padding: 10px; /* Add some padding inside the cards */
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+position: absolute; /* Position the cards absolutely within the container */
+}
+
+/* Adjust the top position to control the overlap */
+.forms:nth-child(2) {
+top: 200px; /* Adjust the value to control the overlap */
+}
+
+.forms:nth-child(3) {
+top: 400px; /* Adjust the value to control the overlap */
+}
+
+.forms:nth-child(4) {
+top: 600px; /* Adjust the value to control the overlap */
+}
+    </style>
+
+   
+
 </head>
 <body>
     <!-- <div class="container-fluid">
@@ -133,102 +171,71 @@
 
                 <div class="forms">
                     <div class="status">
-                      <a href="form.html">
+                      <!-- <a href=""> -->
                         <div class="info">
                           <h2>Form 1</h2>
-                          <h3>link.../com</h3>
+                          <label for="username">Link:</label>
+                          <input type="text" id="username" name="username">
+                          <button id="copyButton">Copy</button>
+                          <h2>progresss: </h2><input type="text" id="progresss" name="progresss">
                         </div>
-                        <div class="progresss">
-                          <!-- <img src="" alt="" /> -->
-                          <h2>progresss: </h2>25/50 (count)
-                        </div>
-                      </a>
+                      <!-- </a> -->
                     </div>
                   </div>
 
                   <div class="forms">
                     <div class="status">
-                      <a href="form.html">
+                      <!-- <a href=""> -->
                         <div class="info">
                           <h2>Form 1</h2>
-                          <h3>link.../com</h3>
+                          <label for="username">Link:</label>
+                          <input type="text" id="link" name="link">
+                          <button id="Button">Copy</button>
+                          <h2>progresss: </h2><input type="text" id="progresss" name="progresss">
                         </div>
-                        <div class="progresss">
-                          <!-- <img src="" alt="" /> -->
-                          <h2>progresss:</h2> 25/50 (count)
-                        </div>
-                      </a>
+                      <!-- </a> -->
                     </div>
                   </div>
 
                   <div class="forms">
                     <div class="status">
-                      <a href="form.html">
+                      <!-- <a href=""> -->
                         <div class="info">
                           <h2>Form 1</h2>
-                          <h3>link.../com</h3>
+                          <label for="username">Link:</label>
+                          <input type="text" id="link2" name="link2">
+                          <button id="Button1">Copy</button>
+                          <h2>progresss: </h2><input type="text" id="progresss" name="progresss">
                         </div>
-                        <div class="progresss">
-                          <!-- <img src="" alt="" /> -->
-                          <h2>progresss:</h2> 25/50 (count)
-                        </div>
-                      </a>
+                      <!-- </a> -->
                     </div>
                   </div>
 
                   <div class="forms">
                     <div class="status">
-                      <a href="form.html">
+                      <!-- <a href=""> -->
                         <div class="info">
                           <h2>Form 1</h2>
-                          <h3>link.../com</h3>
+                          <label for="username">Link:</label>
+                          <input type="text" id="link3" name="link3">
+                          <button id="Button2">Copy</button>
+                          <h2>progresss: </h2><input type="text" id="progresss" name="progresss">
                         </div>
-                        <div class="progresss">
-                          <!-- <img src="" alt="" /> -->
-                          <h2>progresss: </h2>25/50 (count)
-                        </div>
-                      </a>
+                      <!-- </a> -->
                     </div>
                   </div>
+
+
+                  
+
+
+                  
+                  
 
                   
 
             </div>
 
-            <style>
-                /* Container for the form cards */
-.analyse {
-  position: relative; /* Make the container a positioning context for absolute positioning */
-
-  /* Set a fixed height for each card to control the overlap */
-  height: 300px; /* Adjust the height as needed */
-
-  /* Add some margin between the cards */
-  margin-bottom: -50px; /* Adjust the negative margin to control the overlap */
-}
-
-/* Individual form card */
-.forms {
-  width: 100%; /* Make each card take up the full width of the container */
-  /* border: 1px solid #ccc; Add a border for visual separation */
-  padding: 10px; /* Add some padding inside the cards */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
-  position: absolute; /* Position the cards absolutely within the container */
-}
-
-/* Adjust the top position to control the overlap */
-.forms:nth-child(2) {
-  top: 200px; /* Adjust the value to control the overlap */
-}
-
-.forms:nth-child(3) {
-  top: 400px; /* Adjust the value to control the overlap */
-}
-
-.forms:nth-child(4) {
-  top: 600px; /* Adjust the value to control the overlap */
-}
-            </style>
          
 
 
@@ -239,7 +246,8 @@
 
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
-  
+    
+    <script src="form.js"></script>
     
 </body>
 </html>
