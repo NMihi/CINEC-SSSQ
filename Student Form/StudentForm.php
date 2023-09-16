@@ -11,6 +11,9 @@
         td {
             text-align: center;
         }
+        .table{
+            max-width: 80vw;
+        }
         .section{
             background-color: #fff;
             padding: 1.8rem;
@@ -19,14 +22,20 @@
             transition: all 0.3s ease;
             max-width: 800px;
             margin: 10px auto;
+            min-width: 500px;
            
             
 }
+.container {
+        
+        max-width: 800px;
+      }
 
     .btn{
         margin-bottom: 50px;
         margin-top: 20px;
-        border-radius: 10px;
+        border-radius: 25px;
+        
     }
 
     input[type="text"],[type="date"]{
@@ -209,9 +218,10 @@ mysqli_close($conn);
                 <label>Attention of management is drawn to the following significant important issues.</label>
             </p>
             <textarea class="form-control" id="AttentionOfManagement" name="AttentionOfManagement" rows="4" cols="50"></textarea>
+
         </div>
-        <center><button type="submit" class="btn btn-primary">Submit</button></center>
-        
+        <center><button type="submit" class="btn btn-primary btn-block">Submit</button></center>
+
     </form>
 </div>
 
