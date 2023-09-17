@@ -43,7 +43,7 @@
 }
     </style>
 </head>
-<body>
+<body>   
 <div class="container mt-5">
     <div class="section">
     <center><h2 class="text-left">
@@ -72,7 +72,7 @@ while ($row = mysqli_fetch_assoc($result) ) {
 echo '<form action="/submit" method="post">';
 echo'       <div class="form-group section">
             <label for="Course">Course:</label>
-            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="name" value="'.$row['program_name'].'" required>
+            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="CourseName" value="'.$row['program_name'].'" required>
         </div>';
 
 echo' <div class="form-group section">
@@ -87,7 +87,7 @@ echo' <div class="form-group section">
 
 echo' <div class="form-group section">
             <label for="calendar">Date Of Survey:</label>
-            <input type="date" class="form-control" id="calendar" placeholder="Enter Date Of Survey" name="calendar" value="'. date('Y-m-d').'" required>
+            <input type="date" class="form-control" id="calendar" placeholder="Enter Date Of Survey" name="Date" value="'. date('Y-m-d').'" required>
         </div>';
 
 // Fetch the lecturer names associated with the request_id
@@ -161,17 +161,17 @@ mysqli_close($conn);
                 <tbody>
                 <tr>
                     <th>CLASSROOMS</th>
-                    <td><input type="radio" name="Name1_CLASSROOMS" value="Excellent"></td>
-                    <td><input type="radio" name="Name1_CLASSROOMS" value="Good"></td>
-                    <td><input type="radio" name="Name1_CLASSROOMS" value="Satisfactory"></td>
-                    <td><input type="radio" name="Name1_CLASSROOMS" value="Poor"></td>
+                    <td><input type="radio" name="CLASSROOMS" value="Excellent"></td>
+                    <td><input type="radio" name="CLASSROOMS" value="Good"></td>
+                    <td><input type="radio" name="CLASSROOMS" value="Satisfactory"></td>
+                    <td><input type="radio" name="CLASSROOMS" value="Poor"></td>
                 </tr>
                 <tr>
                     <th>OTHER FACILITIES</th>
-                    <td><input type="radio" name="Name1_FACILITIES" value="Excellent"></td>
-                    <td><input type="radio" name="Name1_FACILITIES" value="Good"></td>
-                    <td><input type="radio" name="Name1_FACILITIES" value="Satisfactory"></td>
-                    <td><input type="radio" name="Name1_FACILITIES" value="Poor"></td>
+                    <td><input type="radio" name="FACILITIES" value="Excellent"></td>
+                    <td><input type="radio" name="FACILITIES" value="Good"></td>
+                    <td><input type="radio" name="FACILITIES" value="Satisfactory"></td>
+                    <td><input type="radio" name="FACILITIES" value="Poor"></td>
                 </tr>
                 </tbody>
             </table>
@@ -198,10 +198,10 @@ mysqli_close($conn);
                 <tbody>
                 <tr>
                     <th>Support Service from the faculty/Dept</th>
-                    <td><input type="radio" name="Name1_SupportService" value="Excellent"></td>
-                    <td><input type="radio" name="Name1_SupportService" value="Good"></td>
-                    <td><input type="radio" name="Name1_SupportService" value="Satisfactory"></td>
-                    <td><input type="radio" name="Name1_SupportService" value="Poor"></td>
+                    <td><input type="radio" name="SupportService" value="Excellent"></td>
+                    <td><input type="radio" name="SupportService" value="Good"></td>
+                    <td><input type="radio" name="SupportService" value="Satisfactory"></td>
+                    <td><input type="radio" name="SupportService" value="Poor"></td>
                 </tr>
                 </tbody>
             </table>
@@ -211,7 +211,7 @@ mysqli_close($conn);
                 <label for="SS">Support Services:</label><br>
                 Please Comment on Standard of Support Service from the faculty/Dept.
             </p>
-            <textarea class="form-control" id="SS" name="SupportService" rows="4" cols="50"></textarea>
+            <textarea class="form-control" id="SS" name="SupportServiceComment" rows="4" cols="50"></textarea>
         </div>
         <div class="form-group section">
             <p>
@@ -224,6 +224,58 @@ mysqli_close($conn);
 
     </form>
 </div>
+<?php 
+
+$course_name = $_POST['CourseName'];
+$course_code = $_POST['CourseCode'];
+$batch_no = $_POST['Batch'];
+$current_date = $_POST['Date'];
+$TTL= $_POST['TTLP'];
+$classrooms= $_POST['CLASSROOMS'];
+$facilities= $_POST['FACILITIES'];
+$LEI= $_POST['LEI'];
+$support_services= $_POST['SupportService'];
+$support_services_comment= $_POST['SupportServiceComment'];
+$AOM= $_POST['AttentionOfManagement'];
+
+
+
+
+$sql = "INSERT INTO form_submit (request_id,course_name,	course_code, batch,	submitted_date,	TTL,classrooms, other_facilities, LEI, support_services, support_services_comment, AOM	)
+        VALUES ('$userID','$course_name', '$course_code', '$batch_no', '$current_date', '$TTL', '$classrooms', '$facilities', '$LEI','$support_services','$support_services_comment','$AOM')";
+
+// if ($conn->query($sql) === TRUE) {
+//     // Get the last inserted form_id
+//     $sub_id = $conn->insert_id;
+
+//     // Insert lecturer names into the lecturer_names table
+//     foreach ($_POST['Name' . $sectionNumber . '_Teaching'] as $teaching) {
+//         $teaching = $conn->real_escape_string($teaching); // Sanitize input
+//         $sql = "INSERT INTO submitted_lecturers (sub_id, lec_name, teaching, notes)
+//                 VALUES ('$sub_id','$lecturer_name','')";
+
+//         if (!$conn->query($sql)) {
+//             echo "Error inserting lecturer names: " . $conn->error;
+//             // Rollback the form_data insertion if needed
+//             $conn->rollback();
+//             break;
+//         }
+//     }
+
+//     header("Location: link.php?id=$request_id");
+
+// } else {
+//     echo "Error: " . $sql . "<br>" . $conn->error;
+// }
+
+
+
+
+
+
+
+
+?>
 
 <!-- Add Bootstrap JS and its dependencies -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
