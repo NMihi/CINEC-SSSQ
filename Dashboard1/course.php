@@ -87,6 +87,7 @@
           </div>
         </div>
 
+
         <div class="sidebar">
           <a href="index.html" class="active">
             <span class="material-icons-sharp"> home </span>
@@ -100,26 +101,6 @@
             <span class="material-icons-sharp"> school </span>
             <h3>Courses</h3>
           </a>
-
-          <!-- <a href="#" class="active">
-            <span class="material-icons-sharp"> insights </span>
-            <h3>Analytics</h3> </a
-          >
-          <a href="#">
-            <span class="material-icons-sharp"> mail_outline </span>
-            <h3>Tickets</h3>
-            <span class="message-count">27</span>
-          </a>
-          <a href="#">
-            <span class="material-icons-sharp"> inventory </span>
-            <h3>Sale List</h3>
-          </a> -->
-       
-         
-          <!-- <a href="#">
-            <span class="material-icons-sharp"> add </span>
-            <h3>New Login</h3>
-          </a> -->
 
           <a href="batches.html">
             <span class="material-icons-sharp"> grade </span>
@@ -155,22 +136,122 @@
       </aside>
       <!-- end of aside -->
 
-      <main>
+    <main>
 
         <h1>Courses</h1>
+        <button class="add-course-button" id="add-course-button">Add Course</button>
 
         <div class="analyse">
 
-            
-
         </div>
+        <div class="analyse" id="add-course-form">
+          <form id="course-form" action="insert_course.php" method="POST">
+              <label for="courseName">Course Name:</label>
+              <input type="text" id="courseName" name="courseName" required>
+  
+              <label for="courseID">Course ID:</label>
+              <input type="text" id="courseID" name="courseID" required>
 
-      </main>
+              <label for="courseID">Department,:</label>
+              <input type="text" id="courseID" name="Department" required>
+  
+              <button type="submit" class="submit_course">Submit</button>
+          </form>
+      </div>
+            <!-- Table to display submitted inputs -->
+        <div class="recent-orders">
+        <h2>Submitted Courses</h2>
+          <table>
+              <thead>
+                <tr>
+                  <th>Course Name</th>
+                  <th>Course ID</th>
+                </tr>
+              </thead>
+            <tbody id="course-table-body"><?php
 
+              include('../db_connection.php');
+              
+              // Check connection
+              if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+              }else {
+                  echo "<script>console.log('connected' );</script>";
+              }
+              
+              // SQL query to fetch data from the table
+              $sql = "SELECT course_code, course_name FROM course";
+              $result = $conn->query($sql);
+              
+              if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                      echo "<tr><td>" . $row["course_code"] . "</td><td>" . $row["course_name"] . "</td></tr>";
+                  }
+              } else {
+                  echo "0 results";
+              }
+              
+              $conn->close();
+              ?>
+              </tbody>
+          </table>
+      </div>
+
+    </main>
+       <!-- Right Section -->
+       <div class="right-section">
+        <div class="nav">
+          <button id="menu-btn">
+            <span class="material-icons-sharp"> menu </span>
+          </button>
+          <div class="dark-mode">
+            <span class="material-icons-sharp active"> light_mode </span>
+            <span class="material-icons-sharp"> dark_mode </span>
+          </div>
+
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Reza</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img src="images/profile-1.jpg" />
+            </div>
+          </div>
+        </div>
+        <!-- End of Nav -->
 
   </div> 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const addButton = document.getElementById("add-course-button");
+    const addForm = document.getElementById("add-course-form");
+    const courseForm = document.getElementById("course-form");
+    const courseTableBody = document.querySelector("course-table-body");
 
+    addButton.addEventListener("click", function () {
+        addForm.style.display = "block";
+    });
 
+    courseForm.addEventListener("submit", function (e) {
+        e.Default();
+
+        const courseName = document.getElementById("courseName").value;
+        const courseID = document.getElementById("courseID").value;
+
+        // Append submitted data to the table
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `<td>${courseName}</td><td>${courseID}</td>`;
+        courseTableBody.appendChild(newRow);
+
+        // You'll need to implement code here to insert data into the database
+
+        // Reset form
+        courseForm.reset();
+      });
+    });
+  </script>
+  <script src="index.js"></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
   
