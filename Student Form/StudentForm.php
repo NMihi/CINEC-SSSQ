@@ -96,7 +96,7 @@ $result2 = mysqli_query($conn, $sql2);
 
 // Check if there are any lecturer names
 if (mysqli_num_rows($result2) > 0) {
-    echo '<form >';
+    // echo '<form >';
     $sectionNumber = 1; // Initialize the section number
 
     while ($row2 = mysqli_fetch_assoc($result2)) {
@@ -230,5 +230,6 @@ mysqli_close($conn);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
