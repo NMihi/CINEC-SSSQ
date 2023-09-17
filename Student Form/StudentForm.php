@@ -69,7 +69,7 @@ $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result) ) {
     
    
-echo '<form action="/submit" method="post">';
+echo '<form action="StudentFormSubmit.php?id='.$userID.'"method="post">';
 echo'       <div class="form-group section">
             <label for="Course">Course:</label>
             <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="CourseName" value="'.$row['program_name'].'" required>
@@ -96,7 +96,7 @@ $result2 = mysqli_query($conn, $sql2);
 
 // Check if there are any lecturer names
 if (mysqli_num_rows($result2) > 0) {
-    echo '<form>';
+    echo '<form >';
     $sectionNumber = 1; // Initialize the section number
 
     while ($row2 = mysqli_fetch_assoc($result2)) {
@@ -224,58 +224,7 @@ mysqli_close($conn);
 
     </form>
 </div>
-<?php 
 
-$course_name = $_POST['CourseName'];
-$course_code = $_POST['CourseCode'];
-$batch_no = $_POST['Batch'];
-$current_date = $_POST['Date'];
-$TTL= $_POST['TTLP'];
-$classrooms= $_POST['CLASSROOMS'];
-$facilities= $_POST['FACILITIES'];
-$LEI= $_POST['LEI'];
-$support_services= $_POST['SupportService'];
-$support_services_comment= $_POST['SupportServiceComment'];
-$AOM= $_POST['AttentionOfManagement'];
-
-
-
-
-$sql = "INSERT INTO form_submit (request_id,course_name,	course_code, batch,	submitted_date,	TTL,classrooms, other_facilities, LEI, support_services, support_services_comment, AOM	)
-        VALUES ('$userID','$course_name', '$course_code', '$batch_no', '$current_date', '$TTL', '$classrooms', '$facilities', '$LEI','$support_services','$support_services_comment','$AOM')";
-
-// if ($conn->query($sql) === TRUE) {
-//     // Get the last inserted form_id
-//     $sub_id = $conn->insert_id;
-
-//     // Insert lecturer names into the lecturer_names table
-//     foreach ($_POST['Name' . $sectionNumber . '_Teaching'] as $teaching) {
-//         $teaching = $conn->real_escape_string($teaching); // Sanitize input
-//         $sql = "INSERT INTO submitted_lecturers (sub_id, lec_name, teaching, notes)
-//                 VALUES ('$sub_id','$lecturer_name','')";
-
-//         if (!$conn->query($sql)) {
-//             echo "Error inserting lecturer names: " . $conn->error;
-//             // Rollback the form_data insertion if needed
-//             $conn->rollback();
-//             break;
-//         }
-//     }
-
-//     header("Location: link.php?id=$request_id");
-
-// } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-// }
-
-
-
-
-
-
-
-
-?>
 
 <!-- Add Bootstrap JS and its dependencies -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
