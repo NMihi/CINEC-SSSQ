@@ -16,7 +16,7 @@
       document
         .getElementById("sendEmailButton")
         .addEventListener("click", function () {
-          var subject = "Regarding your website";
+          var subject = "CINEC SSSQ";
           var body =
             "<?php echo'http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$userID;?>";
 

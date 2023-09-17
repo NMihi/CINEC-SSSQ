@@ -14,132 +14,132 @@
     <div class="container">
       <h1 class="text-center">Survey Questionnaire Request</h1>
       <form method="post" action="Request.php">
-        <div class="section"><legend>Program Information</legend>
-        <div class="form-group">
-          <label for="faculty">Faculty</label>
+        <div class="section">
+          <legend>Program Information</legend>
+          <div class="form-group">
+            <label for="faculty">Faculty</label>
 
-          <select name="faculty" id="faculty" class="form-control">
-            <option value="Engineering">Engineering</option>
-            <option value="Health Sceince">Health Sceince</option>
-            <option value="Humanities & Education">
-              Humanities & Education
-            </option>
-            <option value="Management">Management</option>
-            <option value="Marine Engineering">Marine Engineering</option>
-            <option value="Maritime Science">Maritime Science</option>
-          </select>
+            <select name="faculty" id="faculty" class="form-control">
+              <option value="Engineering">Engineering</option>
+              <option value="Health Sceince">Health Sceince</option>
+              <option value="Humanities & Education">
+                Humanities & Education
+              </option>
+              <option value="Management">Management</option>
+              <option value="Marine Engineering">Marine Engineering</option>
+              <option value="Maritime Science">Maritime Science</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Department">Department</label>
+
+            <select name="Department" id="Department" class="form-control">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="name_t_program">Name of the Training Program</label>
+            <input
+              type="text"
+              name="name_t_program"
+              class="form-control"
+              id="name_t_program"
+              placeholder="Enter your Program Name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="p_code">Program Code</label>
+            <input
+              type="text"
+              name="p_code"
+              class="form-control"
+              id="p_code"
+              placeholder="Enter your Program Code"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="batch_no">Batch No</label>
+
+            <select name="batch_no" id="batch_no" class="form-control">
+              <option value="A1">A1</option>
+              <option value="B1">B1</option>
+              <option value="C1">C1</option>
+              <option value="D1">D1</option>
+              <option value="E1">E1</option>
+              <option value="F1">F1</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="semester">Semester</label>
+            <input
+              type="text"
+              name="semester"
+              class="form-control"
+              id="semester"
+              placeholder="Enter the Semester"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="no_of_students">No of Students in the Program</label>
+            <input
+              type="number"
+              name="no_of_students"
+              class="form-control"
+              id="no_of_students"
+              placeholder="Enter the No of Students in the Program"
+              required
+            />
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="Department">Department</label>
+        <div class="section">
+          <legend>Lecturer Panel</legend>
 
-          <select name="Department" id="Department" class="form-control">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-          </select>
+          <div class="form-group" id="lecture-names">
+            <input
+              type="text"
+              class="form-control"
+              name="lecture_name[]"
+              placeholder="Name of the Lecture"
+              required
+            />
+          </div>
+
+          <button type="button" id="add-lecture" class="btn btn-success">
+            Add More Lecturers
+          </button>
         </div>
+        <div class="section">
+          <legend>Date</legend>
 
-        <div class="form-group">
-          <label for="name_t_program">Name of the Training Program</label>
-          <input
-            type="text"
-            name="name_t_program"
-            class="form-control"
-            id="name_t_program"
-            placeholder="Enter your Program Name"
-            required
-          />
+          <div class="form-group">
+            <label for="Proposed_Date">Proposed Date for the Survey</label>
+            <input
+              type="date"
+              name="Proposed_Date"
+              class="form-control"
+              id="Proposed_Date"
+              placeholder="Enter your Date"
+              required
+            />
+          </div>
         </div>
-
-        <div class="form-group">
-          <label for="p_code">Program Code</label>
-          <input
-            type="text"
-            name="p_code"
-            class="form-control"
-            id="p_code"
-            placeholder="Enter your Program Code"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="batch_no">Batch No</label>
-
-          <select name="batch_no" id="batch_no" class="form-control">
-            <option value="A1">A1</option>
-            <option value="B1">B1</option>
-            <option value="C1">C1</option>
-            <option value="D1">D1</option>
-            <option value="E1">E1</option>
-            <option value="F1">F1</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="semester">Semester</label>
-          <input
-            type="text"
-            name="semester"
-            class="form-control"
-            id="semester"
-            placeholder="Enter the Semester"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="no_of_students">No of Students in the Program</label>
-          <input
-            type="number"
-            name="no_of_students"
-            class="form-control"
-            id="no_of_students"
-            placeholder="Enter the No of Students in the Program"
-            required
-          />
-        </div>
-      </div>
-        
-        <div class="section"><legend>Lecturer Panel</legend>
-
-        <div class="form-group" id="lecture-names">
-          <input
-            type="text"
-            class="form-control"
-            name="lecture_name[]"
-            placeholder="Name of the Lecture"
-            required
-          />
-        </div>
-
-        <button type="button" id="add-lecture" class="btn btn-success">
-          Add More Lecturers
-        </button>
-
-      </div>
-        <div class="section"><legend>Date</legend>
-
-        <div class="form-group">
-          <label for="Proposed_Date">Proposed Date for the Survey</label>
-          <input
-            type="date"
-            name="Proposed_Date"
-            class="form-control"
-            id="Proposed_Date"
-            placeholder="Enter your Date"
-            required
-          />
-        </div>
-      </div>
-
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
       </form>
-      <button type="submit" class="btn btn-primary btn-block">Submit</button>
-
     </div>
 
     <script>
