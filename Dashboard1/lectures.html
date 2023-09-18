@@ -13,6 +13,88 @@
     />
     <link rel="stylesheet" href="style.css" />
 
+    <style>
+
+
+
+        .table-container {
+            width: 100%;
+            margin: 0 auto; /* Center the table horizontally (optional) */
+            max-width: 12000px; /* Adjust the maximum width as needed */
+        }
+
+        input[type="text"] {
+            width: 100%; /* Match the width of the parent cell */
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
+
+         /* Style for table header cells */
+         th {
+            background-color: #f2f2f2;
+            text-align: left;
+            padding: 8px;
+            width: 1000px; /* Adjust the width as needed for each column */
+        }
+
+        /* Style for table data cells */
+        td {
+            /* border: 1px solid #dddddd; */
+            text-align: left;
+            padding: 8px;
+            width: 1000px; /* Adjust the width as needed for each column */
+        }
+
+               
+      table {
+          width: 100;
+          /* border-collapse: collapse; */
+      }
+     
+      th {
+          background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+
+           /* Style for the "Add Row" button */
+           #addRowButton {
+            background-color: #29b6e6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #addRowButton:hover {
+            background-color: #005F7A;
+        }
+
+         /* Style for the button panel */
+         .button-panel {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        /* Style for the buttons */
+        .button-panel button {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-panel button:hover {
+            background-color: #9ec1e2;
+        }
+  </style>
+
 </head>
 <body>
     <!-- <div class="container-fluid">
@@ -72,7 +154,7 @@
 
      <!-- new cont -->
 
-    <div class="container">
+<div class="container">
 
         <aside>
             <div class="toggle">
@@ -159,14 +241,119 @@
     
             <div class="analyse">
     
-                
-    
+                <!-- content -->
+                <div class="tablee">
+                  <button id="addRowButton">Add Row</button>
+
+                  <form id="lecturerForm" action="lecturers.php" method="post">
+
+                <table border="1" id="dataTable" >
+                  
+                  <tr>
+                    <th>Lecturer ID</th>
+                    <th>Lecturer Name</th>
+                    <th>Department ID </th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="lec_id" ></td>
+                    <td><input type="text" name="lec_name" ></td>
+                    <td><input type="text" name="dep_id" ></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="lec_id" ></td>
+                    <td><input type="text" name="lec_name" ></td>
+                    <td><input type="text" name="dep_id" ></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="lec_id" ></td>
+                    <td><input type="text" name="lec_name" ></td>
+                    <td><input type="text" name="dep_id" ></td>
+                </tr>
+              
+              </table>
+              <!-- <input type="submit" value="Submit"> -->
+              <!-- <button type="submit" class="btn btn-primary btn-block">Register</button> -->
+            </form>
+
+              
+    <script>
+      // JavaScript code to add new rows with input boxes to the table
+      document.getElementById("addRowButton").addEventListener("click", function() {
+            var table = document.getElementById("dataTable");
+            var newRow = table.insertRow(-1); // Insert a row at the end of the table
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            
+            // Create input elements for the new row
+            var input1 = document.createElement("input");
+            input1.type = "text";
+            input1.name = "lec_id";
+            // input1.value = "New Data 1";
+            
+            var input2 = document.createElement("input");
+            input2.type = "text";
+            input2.name = "lec_name";
+            // input2.value = "New Data 2";
+            
+            var input3 = document.createElement("input");
+            input3.type = "text";
+            input3.name = "dep_id";
+            // input3.value = "New Data 3";
+            
+            // Append input elements to the new row's cells
+            cell1.appendChild(input1);
+            cell2.appendChild(input2);
+            cell3.appendChild(input3);
+        });
+
+        
+  </script>
+        
+              </div>
+
+              
+
             </div>
+
+           
+
+            
     
           </main>
+
+     <!-- Right Section -->
+
+      <div class="right-section">
+        
+
+        <div class="button-panel">
+          <button id="addButton">Add</button>
+          <button>Remove</button>
+          
+        
+      </div>
+
+      <script>
+        // JavaScript code to connect the "Add" button and the form
+        document.getElementById("addButton").addEventListener("click", function() {
+            // Your logic for adding a new row (as shown in your previous code)
+            var table = document.getElementById("dataTable");
+            var newRow = table.insertRow(-1);
+            // ... more code for adding input elements to the new row ...
     
+            // After adding the new row, you can submit the form programmatically
+            document.getElementById("lecturerForm").submit();
+        });
+    </script>
+      
+      </div>
+      <!--end of Right Section -->
+
     
-      </div> 
+</div> 
+
+     
 
 
 
