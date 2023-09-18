@@ -43,7 +43,7 @@
 }
     </style>
 </head>
-<body>   
+<body>
 <div class="container mt-5">
     <div class="section">
     <center><h2 class="text-left">
@@ -69,10 +69,10 @@ $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result) ) {
     
    
-echo '<form action="StudentFormSubmit.php?id='.$userID.'"method="post">';
+echo '<form action="/submit" method="post">';
 echo'       <div class="form-group section">
             <label for="Course">Course:</label>
-            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="CourseName" value="'.$row['program_name'].'" required>
+            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="name" value="'.$row['program_name'].'" required>
         </div>';
 
 echo' <div class="form-group section">
@@ -87,7 +87,7 @@ echo' <div class="form-group section">
 
 echo' <div class="form-group section">
             <label for="calendar">Date Of Survey:</label>
-            <input type="date" class="form-control" id="calendar" placeholder="Enter Date Of Survey" name="Date" value="'. date('Y-m-d').'" required>
+            <input type="date" class="form-control" id="calendar" placeholder="Enter Date Of Survey" name="calendar" value="'. date('Y-m-d').'" required>
         </div>';
 
 // Fetch the lecturer names associated with the request_id
@@ -96,7 +96,7 @@ $result2 = mysqli_query($conn, $sql2);
 
 // Check if there are any lecturer names
 if (mysqli_num_rows($result2) > 0) {
-    // echo '<form >';
+    echo '<form>';
     $sectionNumber = 1; // Initialize the section number
 
     while ($row2 = mysqli_fetch_assoc($result2)) {
@@ -161,17 +161,17 @@ mysqli_close($conn);
                 <tbody>
                 <tr>
                     <th>CLASSROOMS</th>
-                    <td><input type="radio" name="CLASSROOMS" value="Excellent"></td>
-                    <td><input type="radio" name="CLASSROOMS" value="Good"></td>
-                    <td><input type="radio" name="CLASSROOMS" value="Satisfactory"></td>
-                    <td><input type="radio" name="CLASSROOMS" value="Poor"></td>
+                    <td><input type="radio" name="Name1_CLASSROOMS" value="Excellent"></td>
+                    <td><input type="radio" name="Name1_CLASSROOMS" value="Good"></td>
+                    <td><input type="radio" name="Name1_CLASSROOMS" value="Satisfactory"></td>
+                    <td><input type="radio" name="Name1_CLASSROOMS" value="Poor"></td>
                 </tr>
                 <tr>
                     <th>OTHER FACILITIES</th>
-                    <td><input type="radio" name="FACILITIES" value="Excellent"></td>
-                    <td><input type="radio" name="FACILITIES" value="Good"></td>
-                    <td><input type="radio" name="FACILITIES" value="Satisfactory"></td>
-                    <td><input type="radio" name="FACILITIES" value="Poor"></td>
+                    <td><input type="radio" name="Name1_FACILITIES" value="Excellent"></td>
+                    <td><input type="radio" name="Name1_FACILITIES" value="Good"></td>
+                    <td><input type="radio" name="Name1_FACILITIES" value="Satisfactory"></td>
+                    <td><input type="radio" name="Name1_FACILITIES" value="Poor"></td>
                 </tr>
                 </tbody>
             </table>
@@ -198,10 +198,10 @@ mysqli_close($conn);
                 <tbody>
                 <tr>
                     <th>Support Service from the faculty/Dept</th>
-                    <td><input type="radio" name="SupportService" value="Excellent"></td>
-                    <td><input type="radio" name="SupportService" value="Good"></td>
-                    <td><input type="radio" name="SupportService" value="Satisfactory"></td>
-                    <td><input type="radio" name="SupportService" value="Poor"></td>
+                    <td><input type="radio" name="Name1_SupportService" value="Excellent"></td>
+                    <td><input type="radio" name="Name1_SupportService" value="Good"></td>
+                    <td><input type="radio" name="Name1_SupportService" value="Satisfactory"></td>
+                    <td><input type="radio" name="Name1_SupportService" value="Poor"></td>
                 </tr>
                 </tbody>
             </table>
@@ -211,7 +211,7 @@ mysqli_close($conn);
                 <label for="SS">Support Services:</label><br>
                 Please Comment on Standard of Support Service from the faculty/Dept.
             </p>
-            <textarea class="form-control" id="SS" name="SupportServiceComment" rows="4" cols="50"></textarea>
+            <textarea class="form-control" id="SS" name="SupportService" rows="4" cols="50"></textarea>
         </div>
         <div class="form-group section">
             <p>
@@ -225,11 +225,9 @@ mysqli_close($conn);
     </form>
 </div>
 
-
 <!-- Add Bootstrap JS and its dependencies -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
