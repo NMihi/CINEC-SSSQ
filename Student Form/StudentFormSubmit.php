@@ -62,12 +62,38 @@ if ($conn->query($sql) === TRUE ) {
         }
 
     
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Retrieve form data
+                $username = $_POST["username"];
+                $course = $_POST["course"];
+                $courseID = $_POST["courseID"];
+                
+                // Generate a link (example: concatenate username, course, and courseID)
+                $generatedLink = "https://example.com/?user={$username}&course={$course}&courseID={$courseID}";
+                
+                // Display the generated link
+                echo '<div class="forms">';
+                echo '<div class="status">';
+                echo '<div class="info">';
+                echo '<h2>Form 1</h2>';
+                echo '<label for="username">Username:</label> ' . htmlspecialchars($username) . '<br>';
+                echo '<label for="course">Course:</label> ' . htmlspecialchars($course) . '<br>';
+                echo '<label for="courseID">Course ID:</label> ' . htmlspecialchars($courseID) . '<br>';
+                echo '<h2>Generated Link: </h2>';
+                echo '<input type="text" id="generatedLink" name="generatedLink" value="' . htmlspecialchars($generatedLink) . '" readonly>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+
         echo "<script>alert('Form data saved successfully!')</script>";
 
         // Redirect to another HTML page
         header("Location: indexed.html");
         exit;
         
+
+
     } 
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;

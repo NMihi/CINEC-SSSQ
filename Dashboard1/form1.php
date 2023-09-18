@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" /> 
 
     
     <style>
@@ -49,12 +49,10 @@ top: 600px; /* Adjust the value to control the overlap */
 }
     </style>
 
+   
 
 </head>
 <body>
-   
-
-
     <div class="container">
 
         <aside>
@@ -73,7 +71,7 @@ top: 600px; /* Adjust the value to control the overlap */
                 <span class="material-icons-sharp"> home </span>
                 <h3>Home</h3>
               </a>
-              <a href="form.html">
+              <a href="form1.html">
                 <span class="material-icons-sharp"> view_list </span>
                 <h3>Forms</h3>
               </a>
@@ -81,7 +79,9 @@ top: 600px; /* Adjust the value to control the overlap */
                 <span class="material-icons-sharp"> school </span>
                 <h3>Courses</h3>
               </a>
-              <a href="batches.html">
+  
+
+              <a href="batches1.html">
                 <span class="material-icons-sharp"> grade </span>
                 <h3>Batches</h3>
               </a>
@@ -91,7 +91,7 @@ top: 600px; /* Adjust the value to control the overlap */
                 <h3>Lecturers</h3>
               </a>
     
-              <a href="account.html">
+              <a href="account1.html">
                 <span class="material-icons-sharp"> account_circle </span>
                 <h3>Account Details</h3>
               </a>
@@ -115,39 +115,81 @@ top: 600px; /* Adjust the value to control the overlap */
           </aside>
           <!-- end of aside -->
 
-          <main>
+    <main>
 
             <h1>Forms</h1>
 
             <div class="analyse">
 
+      <?php
+      // Step 3: Database Connection
+      include('../db_connection.php');
+      
+      // Step 4: Fetch Data
+      $sql = "SELECT * FROM request_form";
+      $result = mysqli_query($conn, $sql);
+      
+      while ($row = mysqli_fetch_assoc($result) ) {
+          
+         
+        echo'   <div class="forms">
+        <div class="status">
+          <!-- <a href=""> -->
+            <div class="info">
+              <h2>'.$row['batch_no'] .'_'. $row['semester'].'</h2>
+              <label for="link">Link:</label>
+              <input type="text" id="link" name="link" value="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'">
+              
+              <button id="copyButton">Copy</button>
+              <h2>progresss: </h2><input type="text" id="progresss" name="progresss">
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>';
 
-                  <div class="forms">
-                    <div class="status">
-                        <div class="info">
-                          <h2>Form 1</h2>
-                          <label for="username">Link:</label>
-                          <input type="text" id="link3" name="link3">
-                          <button class="copy_btn" id="Button2">Copy</button>
-                          <h2>progresss: </h2><input type="text" id="progresss" name="progresss">
-                        </div>
-                    </div>
-                  </div>
-
-                  
+      echo'
+      <script>
+       document.addEventListener("DOMContentLoaded", function () {
+        const copyButton = document.getElementById("copyButton");
+        const linkInput = document.getElementById("link");
+    
+        copyButton.addEventListener("click", function () {
+          // Select the text inside the input element
+          linkInput.select();
+          linkInput.setSelectionRange(0, 99999); // For mobile devices
+    
+          // Copy the selected text to the clipboard
+          document.execCommand("copy");
+    
+          // Deselect the input field
+          linkInput.blur();
+    
+          // Optionally, provide user feedback (e.g., change button text)
+          copyButton.textContent = "Copied!";
+          setTimeout(function () {
+            copyButton.textContent = "Copy";
+          }, 2000); // Reset button text after 2 seconds
+        });
+      });
+        </script>
+      ';
 
         
-            </div>
+        // Fetch the lecturer names associated with the request_id
+        // $sql2 = "SELECT * FROM lecturer_names WHERE request_id = $userID";
+        // $result2 = mysqli_query($conn, $sql2);
+        
+  
+}
+  // Step 8: Close Database Connection
+  mysqli_close($conn);
 
-            </main>
+?>
+                
+     </div>
+  </main>
+</div>
 
-    </div>
-
-
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
-    
-    <script src="form.js"></script>
     
 </body>
 </html>
