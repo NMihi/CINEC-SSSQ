@@ -38,6 +38,7 @@ if ($conn->query($sql) === TRUE) {
             // Rollback the form_data insertion if needed
             $conn->rollback();
             break;
+            
         }
     }
 
