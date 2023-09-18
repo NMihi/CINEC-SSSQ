@@ -535,12 +535,29 @@ main .recent-orders a {
   gap: 0.6rem;
 }
 .link_placeholder {
-  display: flex;
-  align-content: space-between;
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: auto auto;
 }
 .button {
+  background-color: var(--color-success);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.4rem;
   cursor: pointer;
-  color: var(--color-primary);
+  transition: all 0.3s ease;
+  color: var(--color-white);
+  margin-left: 20px;
+}
+.link {
+  width: fit-content;
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 1200px) {

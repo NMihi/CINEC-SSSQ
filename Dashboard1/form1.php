@@ -106,9 +106,8 @@
           
             <div class="info">
               <h2>'.$row['batch_no'] .'_'. $row['semester'].'</h2>
-              <label for="link">Link:</label>
               <div class="link_placeholder">
-              <input type="text" class="link" id="link'.$sectionNumber.'" name="link'.$sectionNumber.'" value="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'">
+              <input type="text" class="link" id="link'.$sectionNumber.'" name="link'.$sectionNumber.'" value="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'" title="Full link: http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'" readonly>
               
               <button class="button" id="copyButton'.$sectionNumber.'">Copy</button></div>
               <h2>progresss: </h2><input type="text" id="progresss'.$sectionNumber.'" name="progresss'.$sectionNumber.'">
@@ -135,9 +134,9 @@
           linkInput'.$sectionNumber.'.blur();
     
           // Optionally, provide user feedback (e.g., change button text)
-          copyButton'.$sectionNumber.'.textContent = "Copied!";
+          copyButton'.$sectionNumber.'.innerHTML = "Copied!";
           setTimeout(function () {
-            copyButton'.$sectionNumber.'.textContent = "Copy";
+            copyButton'.$sectionNumber.'.innerHTML = "Copy";
           }, 2000); // Reset button text after 2 seconds
         });
       });
