@@ -236,7 +236,7 @@ main .analyse > div {
   border-radius: var(--card-border-radius);
   margin-top: 1rem;
   box-shadow: var(--box-shadow);
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: all 0.3s ease;
 }
 
@@ -533,6 +533,18 @@ main .recent-orders a {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+}
+.link_placeholder {
+  display: flex;
+  align-content: space-between;
+}
+.button {
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+.link {
+  width: 500px;
 }
 
 @media screen and (max-width: 1200px) {

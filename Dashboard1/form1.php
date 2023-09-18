@@ -13,41 +13,7 @@
     />
     <link rel="stylesheet" href="style.css" /> 
 
-    
-    <style>
-        /* Container for the form cards */
-.analyse {
-position: relative; /* Make the container a positioning context for absolute positioning */
-
-/* Set a fixed height for each card to control the overlap */
-height: 300px; /* Adjust the height as needed */
-
-/* Add some margin between the cards */
-margin-bottom: -50px; /* Adjust the negative margin to control the overlap */
-}
-
-/* Individual form card */
-.forms {
-width: 100%; /* Make each card take up the full width of the container */
-/* border: 1px solid #ccc; Add a border for visual separation */
-padding: 10px; /* Add some padding inside the cards */
-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
-position: absolute; /* Position the cards absolutely within the container */
-}
-
-/* Adjust the top position to control the overlap */
-.forms:nth-child(2) {
-top: 200px; /* Adjust the value to control the overlap */
-}
-
-.forms:nth-child(3) {
-top: 400px; /* Adjust the value to control the overlap */
-}
-
-.forms:nth-child(4) {
-top: 600px; /* Adjust the value to control the overlap */
-}
-    </style>
+  
 
    
 
@@ -129,51 +95,55 @@ top: 600px; /* Adjust the value to control the overlap */
       $sql = "SELECT * FROM request_form";
       $result = mysqli_query($conn, $sql);
       
+      if (mysqli_num_rows($result) > 0) {
+        // echo '<form >';
+        $sectionNumber = 1;
       while ($row = mysqli_fetch_assoc($result) ) {
           
          
         echo'   <div class="forms">
         <div class="status">
-          <!-- <a href=""> -->
+          
             <div class="info">
               <h2>'.$row['batch_no'] .'_'. $row['semester'].'</h2>
               <label for="link">Link:</label>
-              <input type="text" id="link" name="link" value="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'">
+              <div class="link_placeholder">
+              <input type="text" class="link" id="link'.$sectionNumber.'" name="link'.$sectionNumber.'" value="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'">
               
-              <button id="copyButton">Copy</button>
-              <h2>progresss: </h2><input type="text" id="progresss" name="progresss">
+              <button class="button" id="copyButton'.$sectionNumber.'">Copy</button></div>
+              <h2>progresss: </h2><input type="text" id="progresss'.$sectionNumber.'" name="progresss'.$sectionNumber.'">
             </div>
-          <!-- </a> -->
+          
         </div>
       </div>';
 
       echo'
       <script>
        document.addEventListener("DOMContentLoaded", function () {
-        const copyButton = document.getElementById("copyButton");
-        const linkInput = document.getElementById("link");
+        const copyButton'.$sectionNumber.' = document.getElementById("copyButton'.$sectionNumber.'");
+        const linkInput'.$sectionNumber.' = document.getElementById("link'.$sectionNumber.'");
     
-        copyButton.addEventListener("click", function () {
+        copyButton'.$sectionNumber.'.addEventListener("click", function () {
           // Select the text inside the input element
-          linkInput.select();
-          linkInput.setSelectionRange(0, 99999); // For mobile devices
+          linkInput'.$sectionNumber.'.select();
+          linkInput'.$sectionNumber.'.setSelectionRange(0, 99999); // For mobile devices
     
           // Copy the selected text to the clipboard
           document.execCommand("copy");
     
           // Deselect the input field
-          linkInput.blur();
+          linkInput'.$sectionNumber.'.blur();
     
           // Optionally, provide user feedback (e.g., change button text)
-          copyButton.textContent = "Copied!";
+          copyButton'.$sectionNumber.'.textContent = "Copied!";
           setTimeout(function () {
-            copyButton.textContent = "Copy";
+            copyButton'.$sectionNumber.'.textContent = "Copy";
           }, 2000); // Reset button text after 2 seconds
         });
       });
         </script>
       ';
-
+    }
         
         // Fetch the lecturer names associated with the request_id
         // $sql2 = "SELECT * FROM lecturer_names WHERE request_id = $userID";
