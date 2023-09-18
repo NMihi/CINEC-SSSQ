@@ -543,10 +543,6 @@ main .recent-orders a {
   color: var(--color-primary);
 }
 
-.link {
-  width: 500px;
-}
-
 @media screen and (max-width: 1200px) {
   .container {
     width: 95%;

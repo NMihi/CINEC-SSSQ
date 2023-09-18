@@ -143,11 +143,9 @@
       });
         </script>
       ';
+
+      $sectionNumber++;
     }
-        
-        // Fetch the lecturer names associated with the request_id
-        // $sql2 = "SELECT * FROM lecturer_names WHERE request_id = $userID";
-        // $result2 = mysqli_query($conn, $sql2);
         
   
 }
