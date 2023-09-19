@@ -86,7 +86,7 @@
             <h1>Forms</h1>
             <a href="../Request Form/Request.html">
               <div class="request_form">
-                  <h1>Create new form</h1>
+                  <h2>Create new form</h2>
             </div></a>
           </div>
 

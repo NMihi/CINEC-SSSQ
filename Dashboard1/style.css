@@ -565,7 +565,7 @@ main .recent-orders a {
 .request_form {
   box-shadow: var(--box-shadow);
   transition: all 0.3s ease;
-  background-color: var(--color-white);
+  background-color: var(--color-warning);
   padding: 15px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
