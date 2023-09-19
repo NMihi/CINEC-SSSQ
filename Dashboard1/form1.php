@@ -37,7 +37,7 @@
                 <span class="material-icons-sharp"> home </span>
                 <h3>Home</h3>
               </a>
-              <a href="form1.html">
+              <a href="form1.php">
                 <span class="material-icons-sharp"> view_list </span>
                 <h3>Forms</h3>
               </a>
