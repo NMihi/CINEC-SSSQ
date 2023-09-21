@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($user['user_type']=='Admin'){
             header("Location: ../Dashboard/index.html");
         }elseif($user['user_type']=='Client'){
-            header("Location: ../Request Form/Request.html");
+            header("Location: ../Dashboard1/index.html");
         }elseif($user['user_type']=='Super Admin'){
             header("Location: ../Dashboard/index.html");
         }

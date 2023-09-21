@@ -82,10 +82,18 @@
           <!-- end of aside -->
 
     <main>
-
+          <div class="header">
             <h1>Forms</h1>
+            <a href="../Request Form/Request.html">
+              <div class="request_form">
+                  <h2>Create new form</h2>
+            </div></a>
+          </div>
+
+          
 
             <div class="analyse">
+              
 
       <?php
       // Step 3: Database Connection
