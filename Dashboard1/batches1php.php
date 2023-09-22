@@ -115,11 +115,11 @@ $result = $conn->query($sql);
             <!-- Analyses -->
             <div class="analyse">
               <div class="sales">
-                <div class="status">
-                  <div class="info">
-                    <form method="post" action="batches1.php">
+                
+                 
+                    <form method="post" action="batches1.php" class="form-container">
                       <div class="form-group">
-                        <label for="loginEmail">Batch</label>
+                        
                         <input
                           type="text"
                           class="form-control"
@@ -130,7 +130,7 @@ $result = $conn->query($sql);
                         />
                       </div>
                       <div class="form-group">
-                        <label for="loginPassword">Course</label>
+                        
                         <input
                           type="text"
                           name="course"
@@ -141,12 +141,12 @@ $result = $conn->query($sql);
                         />
                       </div>
                       <button type="submit" class="btn btn-primary btn-block">
-                        Login
+                        submit
                       </button>
                     </form>
-                  </div>
+                 
                   
-                </div>
+               
               </div>
             </div>
             <!-- End of Analyses -->
@@ -160,8 +160,8 @@ $result = $conn->query($sql);
                 <thead>
                   <tr>
                     <th>Batch</th>
-                    <th>Couse</th>
-                    <th></th>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -170,6 +170,7 @@ $result = $conn->query($sql);
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row["batch_name"] . "</td>";
+                    echo "<td>" . $row["ourse_code"] . "</td>";
                     echo "<td>" . $row["course_name"] . "</td>";
                     echo "</tr>";
                 }
