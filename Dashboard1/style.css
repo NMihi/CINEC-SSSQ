@@ -118,7 +118,7 @@ b {
   width: 96%;
   margin: 0 auto;
   gap: 1.8rem;
-  grid-template-columns: 12rem auto 23rem;
+  grid-template-columns: 12rem auto 10rem;
 }
 
 aside {
@@ -541,6 +541,12 @@ main .recent-orders a {
   gap: 1.8rem;
   grid-template-columns: auto auto;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .button {
   background-color: var(--color-success);
   padding: 15px;
@@ -555,6 +561,27 @@ main .recent-orders a {
   color: var(--color-white);
   margin-left: 20px;
 }
+
+.request_form {
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+  background-color: var(--color-warning);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-dark);
+}
+
+.request_form:hover {
+  box-shadow: none;
+}
+
 .link {
   width: fit-content;
   flex-grow: 1;
