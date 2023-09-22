@@ -1,3 +1,17 @@
+<?php
+include('../db_connection.php');
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch user data from the database
+$sql = "SELECT * FROM users";
+$result = $conn->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +25,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="batches1.css" />
 
 </head>
 <body>
@@ -155,15 +169,84 @@
           <!-- end of aside -->
 
           <main>
-
             <h1>Batches</h1>
-
+            <!-- Analyses -->
             <div class="analyse">
-
-                
-
+              <div class="sales">
+                <div class="status">
+                  <div class="info">
+                    <form method="post" action="batches1.php">
+                      <div class="form-group">
+                        <label for="loginEmail">Batch</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="batch"
+                          id="loginEmail"
+                          placeholder="Enter Batch"
+                          
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="loginPassword">Course</label>
+                        <input
+                          type="text"
+                          name="course"
+                          class="form-control"
+                          id="loginPassword"
+                          placeholder="Enter Course"
+                          required
+                        />
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block">
+                        Login
+                      </button>
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
             </div>
+            <!-- End of Analyses -->
+    
+            
+    
+            <!-- Recent Orders Table -->
+            <div class="recent-orders">
+              <h2>Recent Orders</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Batch</th>
+                    <th>Couse</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["batch_name"] . "</td>";
+                    echo "<td>" . $row["course_code"] . "</td>";
 
+                    echo "<td><form method='post' action='batches1.php'>
+                              <input type='hidden' name='user_id' value='" . $row["user_id"] . "'>
+                              <input type='submit' value='Delete'>
+                              </form></td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='5'>No users found</td></tr>";
+            }
+            ?>
+
+                </tbody>
+              </table>
+              <a href="#">Show All</a>
+            </div>
+            <!-- End of Recent Orders -->
+          
           </main>
 
 
@@ -174,3 +257,9 @@
     
 </body>
 </html>
+
+
+<?php
+// Close the database connection
+$conn->close();
+?>
