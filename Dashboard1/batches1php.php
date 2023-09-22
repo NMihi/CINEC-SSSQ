@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch user data from the database
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM batches,course where batches.course_code = course.course_code";
 $result = $conn->query($sql);
 
 ?>
@@ -18,8 +18,6 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinec SSSQ</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"> -->
 
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
@@ -29,63 +27,7 @@ $result = $conn->query($sql);
 
 </head>
 <body>
-    <!-- <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Cinec SSSQ</span>
-                    </a>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link align-middle px-0">
-                                <i class="fas fa-home"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                            </a>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a href="dashboard.html" class="nav-link align-middle px-0">
-                                <i class="fas fa-tachometer-alt"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="adduser.html" class="nav-link align-middle px-0">
-                                <i class="fas fa-user-plus"></i> <span class="ms-1 d-none d-sm-inline">Add / Remove User</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="viewStatus.html" class="nav-link px-0 align-middle">
-                                <i class="fas fa-spinner"></i> <span class="ms-1 d-none d-sm-inline">View Status</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="reports.html" class="nav-link px-0 align-middle">
-                                <i class="fad fa-file-chart-line"></i> <span class="ms-1 d-none d-sm-inline">View Reports</span></a>
-                        </li> -->
-                        
-                    <!-- </ul>
-                    <hr>
-                    <div class="signout pb-4">
-                       
-
-                        <form action="logout.php" method="post">
-                            <input type="hidden" name="logout" value="true">
-                            <button type="submit" class="dropdown-item">Sign out</button>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- cont -->
-
-            <!-- <div class="col py-3">
-                <h1>Batches</h1>
-            </div>
-
-  
-        </div>
-    </div>    -->
-
-     <!-- new cont -->
-
+   
 
      <div class="container">
 
@@ -228,12 +170,7 @@ $result = $conn->query($sql);
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row["batch_name"] . "</td>";
-                    echo "<td>" . $row["course_code"] . "</td>";
-
-                    echo "<td><form method='post' action='batches1.php'>
-                              <input type='hidden' name='user_id' value='" . $row["user_id"] . "'>
-                              <input type='submit' value='Delete'>
-                              </form></td>";
+                    echo "<td>" . $row["course_name"] . "</td>";
                     echo "</tr>";
                 }
             } else {

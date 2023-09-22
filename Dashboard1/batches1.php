@@ -30,7 +30,7 @@ $sql = "INSERT INTO batches (batch_name	,course_code
                 // exit;
                 echo "<script>alert('Form data saved successfully!')</script>";
                  // Redirect to another HTML page
-                 header("Location: batches1.html");
+                 header("Location: batches1php.php");
                  exit;
                 
             } 
