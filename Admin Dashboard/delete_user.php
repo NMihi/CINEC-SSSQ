@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         echo "User deleted successfully.";
     } else {
+        echo "<script>alert('This user can not be deleted')</script>";
         echo "Error deleting user: " . $conn->error;
     }
     

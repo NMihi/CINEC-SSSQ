@@ -1,3 +1,28 @@
+<?php
+include('../../db_connection.php');
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// SQL query to select faculty names from the table
+$sql = "SELECT faculty FROM faculty";
+
+// Execute the query
+$result = $conn->query($sql);
+
+// Initialize an array to store faculty names
+$facultyOptions = array();
+
+if ($result->num_rows > 0) {
+    // Fetch and store faculty names in the array
+    while ($row = $result->fetch_assoc()) {
+        $facultyOptions[] = $row["faculty"];
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -73,14 +98,14 @@
         </div> -->
         <div class="form-group">
           <label for="faculty">Faculty</label>
-          <input
-            type="text"
-            class="form-control"
-            name="faculty"
-            id="faculty"
-            placeholder="Enter user type"
-            required
-          />
+          <select class="form-control" name="faculty" id="faculty"  placeholder="Enter Faculty"required>
+        <?php
+        // Loop through faculty options and create <option> elements
+        foreach ($facultyOptions as $option) {
+            echo "<option value=\"$option\">$option</option>";
+        }
+        ?>
+    </select>
         </div>
         <div class="form-group">
           <label for="department">Department</label>
@@ -89,7 +114,7 @@
             class="form-control"
             name="department"
             id="department"
-            placeholder="Enter user type"
+            placeholder="Enter Department"
             required
           />
         </div>
@@ -135,5 +160,12 @@
         return true; // Allow form submission
       }
     </script>
+
+    
+      <?php
+      // Close the database connection
+      $conn->close();
+      ?>
+
   </body>
 </html>
