@@ -89,3 +89,11 @@ teaching VARCHAR(100) NOT NULL,
 notes VARCHAR(100) NOT NULL,
 FOREIGN KEY (sub_id) REFERENCES form_submit(sub_id)
 );
+
+
+CREATE TABLE IF NOT EXISTS batches (
+batch_id INT AUTO_INCREMENT PRIMARY KEY,
+batch_name VARCHAR(100) NOT NULL,
+course_code VARCHAR(100) NOT NULL,
+FOREIGN KEY (course_code) REFERENCES course(course_code)
+);
