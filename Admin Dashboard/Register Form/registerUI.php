@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 }
 
 // SQL query to select faculty names from the table
-$sql = "SELECT faculty FROM faculty";
+$sql = "SELECT * FROM faculty";
 
 // Execute the query
 $result = $conn->query($sql);
@@ -15,12 +15,6 @@ $result = $conn->query($sql);
 // Initialize an array to store faculty names
 $facultyOptions = array();
 
-if ($result->num_rows > 0) {
-    // Fetch and store faculty names in the array
-    while ($row = $result->fetch_assoc()) {
-        $facultyOptions[] = $row["faculty"];
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +23,8 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -85,39 +81,30 @@ if ($result->num_rows > 0) {
             required
           />
         </div>
-        <!-- <div class="form-group">
-          <label for="user_type">User Type</label>
-          <input
-            type="text"
-            class="form-control"
-            name="user_type"
-            id="user_type"
-            placeholder="Enter user type"
-            required
-          />
-        </div> -->
+
         <div class="form-group">
-          <label for="faculty">Faculty</label>
-          <select class="form-control" name="faculty" id="faculty"  placeholder="Enter Faculty"required>
-        <?php
-        // Loop through faculty options and create <option> elements
-        foreach ($facultyOptions as $option) {
-            echo "<option value=\"$option\">$option</option>";
+  <label for="faculty">Faculty</label>
+  <select class="form-control" name="faculty" id="faculty" required>
+    <option value="NULL">Select a Faculty</option>
+    <?php
+
+        if ($result->num_rows > 0) {
+          // Fetch and store faculty names in the array
+          while ($row = $result->fetch_assoc()) {
+            echo '<option value="'.$row["fac_id"].'">'.$row["faculty"].'</option>';
+              
+          }
         }
-        ?>
-    </select>
-        </div>
-        <div class="form-group">
-          <label for="department">Department</label>
-          <input
-            type="text"
-            class="form-control"
-            name="department"
-            id="department"
-            placeholder="Enter Department"
-            required
-          />
-        </div>
+  
+    ?>
+  </select>
+</div>
+<div class="form-group">
+  <label for="department">Department</label>
+  <select class="form-control" name="department" id="department" required>
+    
+  </select>
+</div>
         <div class="form-group">
           <label for="password">Password</label>
           <input
@@ -161,6 +148,23 @@ if ($result->num_rows > 0) {
       }
     </script>
 
+<script>
+  // Function to populate the department dropdown based on the selected faculty
+  function populateDepartments() {
+    var selectedFaculty = $('#faculty').val();
+    $.ajax({
+      type: 'POST',
+      url: 'get_departments.php', // Create a PHP script to handle the AJAX request
+      data: { fac_id: selectedFaculty },
+      success: function(data) {
+        $('#department').html(data); // Populate the department dropdown with the response
+      }
+    });
+  }
+
+  // Attach the populateDepartments function to the onchange event of the Faculty dropdown
+  $('#faculty').on('change', populateDepartments);
+</script>
     
       <?php
       // Close the database connection
