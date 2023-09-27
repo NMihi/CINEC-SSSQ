@@ -170,7 +170,7 @@ $result = $conn->query($sql);
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row["batch_name"] . "</td>";
-                    echo "<td>" . $row["ourse_code"] . "</td>";
+                    echo "<td>" . $row["course_code"] . "</td>";
                     echo "<td>" . $row["course_name"] . "</td>";
                     echo "</tr>";
                 }
