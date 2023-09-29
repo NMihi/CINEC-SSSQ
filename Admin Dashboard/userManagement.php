@@ -53,7 +53,7 @@ $result = $conn->query($sql);
             <h3>User Management</h3>
           </a>
 
-          <a href="report.html">
+          <a href="report_home.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>
@@ -78,6 +78,15 @@ $result = $conn->query($sql);
           <div class="dark-mode">
             <span class="material-icons-sharp active"> light_mode </span>
             <span class="material-icons-sharp"> dark_mode </span>
+          </div>
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Reza</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img src="images/profile-1.jpg" />
+            </div>
           </div>
         </div>
         <!-- End of Nav -->
