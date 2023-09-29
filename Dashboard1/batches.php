@@ -47,7 +47,7 @@ $result = $conn->query($sql);
                 <span class="material-icons-sharp"> home </span>
                 <h3>Home</h3>
               </a>
-              <a href="form1.html">
+              <a href="form1.php">
                 <span class="material-icons-sharp"> view_list </span>
                 <h3>Forms</h3>
               </a>
@@ -56,27 +56,8 @@ $result = $conn->query($sql);
                 <h3>Courses</h3>
               </a>
     
-              <!-- <a href="#" class="active">
-                <span class="material-icons-sharp"> insights </span>
-                <h3>Analytics</h3> </a
-              >
-              <a href="#">
-                <span class="material-icons-sharp"> mail_outline </span>
-                <h3>Tickets</h3>
-                <span class="message-count">27</span>
-              </a>
-              <a href="#">
-                <span class="material-icons-sharp"> inventory </span>
-                <h3>Sale List</h3>
-              </a> -->
-           
-             
-              <!-- <a href="#">
-                <span class="material-icons-sharp"> add </span>
-                <h3>New Login</h3>
-              </a> -->
 
-              <a href="batches1.html">
+              <a href="batches.php">
                 <span class="material-icons-sharp"> grade </span>
                 <h3>Batches</h3>
               </a>
@@ -175,7 +156,7 @@ $result = $conn->query($sql);
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='5'>No users found</td></tr>";
+                echo "<tr><td colspan='5'>No batches found</td></tr>";
             }
             ?>
 

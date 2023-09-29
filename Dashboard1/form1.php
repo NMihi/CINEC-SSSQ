@@ -47,7 +47,7 @@
               </a>
   
 
-              <a href="batches1.html">
+              <a href="batches.php">
                 <span class="material-icons-sharp"> grade </span>
                 <h3>Batches</h3>
               </a>
