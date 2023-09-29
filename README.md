@@ -90,10 +90,32 @@ notes VARCHAR(100) NOT NULL,
 FOREIGN KEY (sub_id) REFERENCES form_submit(sub_id)
 );
 
-
 CREATE TABLE IF NOT EXISTS batches (
 batch_id INT AUTO_INCREMENT PRIMARY KEY,
 batch_name VARCHAR(100) NOT NULL,
 course_code VARCHAR(100) NOT NULL,
 FOREIGN KEY (course_code) REFERENCES course(course_code)
 );
+
+INSERT INTO faculty (fac_id,faculty) VALUES ('1','Engineering & Technology'),('2','Health Sciences'),('3','Management & Social Sciences'),('4','Humanities & Education'),('5','Maritime Sciences'),('6','Marine Engineering');
+
+INSERT INTO department (dep_id,fac_id,department) VALUES
+('1','1','Information Technology'),
+('2','1','Civil Engineering'),
+('3','1','Mechanical & Automotive Engineering'),
+('4','1','Electrical & Electronic Engineering'),
+('5','2','Biomedical Science'),
+('6','2','Pharmacy and Pharmaceutical Sciences'),
+('7','2','Cosmetic Science'),
+('8','2','Health and Medical Sciences'),
+('9','3','Logistics and Transport'),
+('10','3','Management and Business Studies'),
+('11','4','Education'),
+('12','4','English'),
+('13','4','English Language Teaching Unit'),
+('14','5','Navigation'),
+('15','5','Safety & Survival Training'),
+('16','5','Marine Electronics & Radio Communications'),
+('17','5','Maritime Simulation'),
+('18','6','Marine Engineering'),
+('19','6','Marine Electrical');
