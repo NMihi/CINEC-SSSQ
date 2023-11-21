@@ -41,7 +41,7 @@
                 <span class="material-icons-sharp"> view_list </span>
                 <h3>Forms</h3>
               </a>
-              <a href="course.html">
+              <a href="courseUI.php">
                 <span class="material-icons-sharp"> school </span>
                 <h3>Courses</h3>
               </a>

@@ -34,11 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Print user information (you can customize this part)
         if($user['user_type']=='Admin'){
-            header("Location: ../Dashboard/index.html");
+            header("Location: ../Admin Dashboard/userManagement.php");
         }elseif($user['user_type']=='Client'){
             header("Location: ../Dashboard1/index.html");
         }elseif($user['user_type']=='Super Admin'){
-            header("Location: ../Dashboard/index.html");
+            header("Location: ../Admin Dashboard/userManagement.php");
         }
     } else {
         // Invalid login

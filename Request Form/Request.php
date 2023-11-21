@@ -17,7 +17,7 @@ $batch_no = $_POST['batch_no'];
 $semester = $_POST['semester'];
 $no_of_students = $_POST['no_of_students'];
 $proposed_date = $_POST['Proposed_Date'];
-$user_id = "21";
+$user_id = "1";
 
 // SQL query to insert data into survey_form_data table
 $sql = "INSERT INTO request_form (faculty, department, program_name, program_code, batch_no, semester, no_of_students, proposed_date,user_id)

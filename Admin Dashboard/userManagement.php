@@ -110,7 +110,7 @@ $result = $conn->query($sql);
             </div>
             <div class="visits">
               <div class="status">
-                <a href="Register Form/register.html">
+                <a href="Register Form/registerUI.php">
                   <div class="info">
                     <h1>New Client User</h1>
                   </div>
