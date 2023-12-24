@@ -19,8 +19,8 @@ $confirmPassword = $_POST ['confirmPassword'];
 
 
 // SQL query to insert data into survey_form_data table
-$sql = "INSERT INTO users (name,password,user_type,email)
-        VALUES ('$name','$password','$user_type','$email')";
+$sql = "INSERT INTO users (name,password,user_type,email,fac_dep)
+        VALUES ('$name','$password','$user_type','$email','admin')";
        
     
          if ($conn->query($sql) === TRUE ) {

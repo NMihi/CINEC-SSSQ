@@ -84,7 +84,7 @@ $facultyOptions = array();
 
         <div class="form-group">
   <label for="faculty">Faculty / Department</label>
-  <select class="form-control" name="faculty" id="faculty" required>
+  <select class="form-control" name="fac_dep" id="faculty" required>
     <option value="NULL">Select a Faculty</option>
     <?php
 

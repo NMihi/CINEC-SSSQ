@@ -10,10 +10,8 @@ if ($conn->connect_error) {
 }
 
 // Retrieve data from the form
-$faculty = $_POST['faculty'];
-$department = $_POST['Department'];
-$program_name = $_POST['name_t_program'];
-$program_code = $_POST['p_code'];
+$fac_dep = $_POST['fac_dep'];
+$course = $_POST['course'];
 $batch_no = $_POST['batch_no'];
 $semester = $_POST['semester'];
 $no_of_students = $_POST['no_of_students'];
@@ -21,8 +19,8 @@ $proposed_date = $_POST['Proposed_Date'];
 $user_id = $_SESSION['user_id'];
 
 // SQL query to insert data into survey_form_data table
-$sql = "INSERT INTO request_form (faculty, department, program_name, program_code, batch_no, semester, no_of_students, proposed_date,user_id)
-        VALUES ('$faculty', '$department', '$program_name', '$program_code', '$batch_no', '$semester', $no_of_students, '$proposed_date','$user_id')";
+$sql = "INSERT INTO request_form (fac_dep, course, batch_no, semester, no_of_students, proposed_date,user_id)
+        VALUES ('$fac_dep', '$course', '$batch_no', '$semester', $no_of_students, '$proposed_date','$user_id')";
 
 if ($conn->query($sql) === TRUE) {
     // Get the last inserted form_id

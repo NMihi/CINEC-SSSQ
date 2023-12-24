@@ -12,15 +12,13 @@ name VARCHAR(50) NOT NULL,
 password VARCHAR(255) NOT NULL,
 user_type ENUM('Client', 'Admin', 'Super Admin') NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE,
-Department VARCHAR(50)DEFAULT NULL,
+fac_dep VARCHAR(50)DEFAULT NULL,
 );
 
 CREATE TABLE IF NOT EXISTS request_form (
 request_id INT AUTO_INCREMENT PRIMARY KEY,
-faculty VARCHAR(50) NOT NULL,
-department VARCHAR(50) NOT NULL,
-program_name VARCHAR(100) NOT NULL,
-program_code VARCHAR(50) NOT NULL,
+fac_dep VARCHAR(50) NOT NULL,
+course VARCHAR(100) NOT NULL,
 batch_no VARCHAR(50) NOT NULL,
 semester VARCHAR(50) NOT NULL,
 no_of_students INT NOT NULL,
