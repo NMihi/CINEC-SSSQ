@@ -14,13 +14,13 @@ if ($conn->connect_error) {
 }
 
 // Assuming you have form handling logic to retrieve data from the POST request
-$lecturerID = $_POST['lec_id'];
+
 $lecturerName = $_POST['lec_name'];
-$departmentID = $_POST['dep_id'];
+$facID = $_POST['fac_id'];
 
 // SQL query to insert data into the database
-$sql = "INSERT INTO lecturer (lec_id, lec_name, dep_id)
-        VALUES ('$lecturerID', '$lecturerName', '$departmentID')";
+$sql = "INSERT INTO lecturer (lec_name, fac_id)
+        VALUES ('$lecturerName', '$facID')";
 
 
 

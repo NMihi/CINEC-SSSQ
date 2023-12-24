@@ -52,7 +52,7 @@
                 <h3>Batches</h3>
               </a>
     
-              <a href="lectures.html">
+              <a href="lecturesUI.php">
                 <span class="material-icons-sharp"> person </span>
                 <h3>Lecturers</h3>
               </a>
