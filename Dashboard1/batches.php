@@ -1,6 +1,7 @@
 <?php
 include('../db_connection.php');
 session_start();
+$fac_id=$_SESSION['Faculty'];
 
 if (!isset($_SESSION['user_id'])) {
   header("Location: ../Login/login.html");
@@ -57,7 +58,7 @@ $result = $conn->query($sql);
                 <span class="material-icons-sharp"> view_list </span>
                 <h3>Forms</h3>
               </a>
-              <a href="course.html">
+              <a href="courseUI.php">
                 <span class="material-icons-sharp"> school </span>
                 <h3>Courses</h3>
               </a>
@@ -107,23 +108,31 @@ $result = $conn->query($sql);
                     <form method="post" action="batches1.php" class="form-container">
                       <div class="form-group">
                         
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="batch"
-                          id="loginEmail"
-                          placeholder="Enter Batch"
-                          
-                        />
+                      <select class="form-control" name="course" id="course" required>
+                        <option value="NULL">Select a Course</option>
+                        <?php
+                          $sql1 = "SELECT * FROM course where fac_id='$fac_id'";
+                          $result1 = $conn->query($sql1);
+
+                            if ($result1->num_rows > 0) {
+                              // Fetch and store faculty names in the array
+                              while ($row = $result1->fetch_assoc()) {
+                                echo '<option value="'.$row["course_code"].'">'.$row["course_name"].'</option>';
+                                  
+                              }
+                            }
+                      
+                        ?>
+                      </select>
                       </div>
                       <div class="form-group">
                         
                         <input
                           type="text"
-                          name="course"
+                          name="batch"
                           class="form-control"
                           id="loginPassword"
-                          placeholder="Enter Course"
+                          placeholder="Enter Batch Name"
                           required
                         />
                       </div>

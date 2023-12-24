@@ -16,17 +16,23 @@ if ($conn->connect_error) {
 // Assuming you have form handling logic to retrieve data from the POST request
 $courseCode = $_POST['course_code'];
 $courseName = $_POST['course_name'];
-$departmentID = $_POST['dep_id'];
+$facID = $_POST['fac_id'];
 
 // SQL query to insert data into the database
-$sql = "INSERT INTO course (course_code, course_name, dep_id)
-        VALUES ('$courseCode', '$courseName', '$departmentID')";
+$sql = "INSERT INTO course (course_code, course_name, fac_id)
+        VALUES ('$courseCode', '$courseName', '$facID')";
 
 
 
 // Execute the query
 if ($conn->query($sql) === TRUE) {
-    echo "Data inserted successfully";
+    echo "<script>alert('Data inserted successfully!');</script>";
+    echo "<script>
+            setTimeout(function() {
+                window.location.href = 'courseUI.php';
+            }, 2); // Redirect after 2 seconds (adjust as needed)
+        </script>";
+        exit;
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

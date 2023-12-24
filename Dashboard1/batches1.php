@@ -33,10 +33,14 @@ $sql = "INSERT INTO batches (batch_name	,course_code
                 // // Redirect to another HTML page batch_id course_code
                 // header("Location: ../index.html");
                 // exit;
-                echo "<script>alert('Form data saved successfully!')</script>";
+                echo "<script>alert('Data inserted successfully!')</script>";
                  // Redirect to another HTML page
-                 header("Location: batches1php.php");
-                 exit;
+                 echo "<script>
+                        setTimeout(function() {
+                            window.location.href = 'batches.php';
+                        }, 2); // Redirect after 2 seconds (adjust as needed)
+                    </script>";
+                    exit;
                 
             } 
             else {

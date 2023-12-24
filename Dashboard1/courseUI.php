@@ -95,23 +95,42 @@ $result = $conn->query($sql);
         <!-- Analyses -->
         <div class="analyse">
           <div class="sales">
-            <form method="post" action="batches1.php" class="form-container">
+            <form method="post" action="courses.php" class="form-container">
+              <div class="form-group">
+              <select class="form-control" name="fac_id" id="fac_id" required>
+                <option value="NULL">Select a Faculty / Department</option>
+                <?php
+                  $sql1 = "SELECT * FROM fac_dep";
+                  $result1 = $conn->query($sql1);
+
+                    if ($result1->num_rows > 0) {
+                      // Fetch and store faculty names in the array
+                      while ($row = $result1->fetch_assoc()) {
+                        echo '<option value="'.$row["fac_id"].'">'.$row["fac_or_dep"].'</option>';
+                          
+                      }
+                    }
+              
+                ?>
+              </select>
+              </div>
               <div class="form-group">
                 <input
                   type="text"
+                  name="course_code"
                   class="form-control"
-                  name="batch"
-                  id="loginEmail"
-                  placeholder="Enter Batch"
+                  id="loginPassword"
+                  placeholder="Enter Course Code"
+                  required
                 />
               </div>
               <div class="form-group">
                 <input
                   type="text"
-                  name="course"
+                  name="course_name"
                   class="form-control"
                   id="loginPassword"
-                  placeholder="Enter Course"
+                  placeholder="Enter Course Name"
                   required
                 />
               </div>
