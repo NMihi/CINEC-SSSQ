@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 }
 
 // SQL query to select faculty names from the table
-$sql = "SELECT * FROM faculty";
+$sql = "SELECT * FROM fac_dep";
 
 // Execute the query
 $result = $conn->query($sql);
@@ -83,7 +83,7 @@ $facultyOptions = array();
         </div>
 
         <div class="form-group">
-  <label for="faculty">Faculty</label>
+  <label for="faculty">Faculty / Department</label>
   <select class="form-control" name="faculty" id="faculty" required>
     <option value="NULL">Select a Faculty</option>
     <?php
@@ -91,7 +91,7 @@ $facultyOptions = array();
         if ($result->num_rows > 0) {
           // Fetch and store faculty names in the array
           while ($row = $result->fetch_assoc()) {
-            echo '<option value="'.$row["fac_id"].'">'.$row["faculty"].'</option>';
+            echo '<option value="'.$row["fac_id"].'">'.$row["fac_or_dep"].'</option>';
               
           }
         }
@@ -99,12 +99,7 @@ $facultyOptions = array();
     ?>
   </select>
 </div>
-<div class="form-group">
-  <label for="department">Department</label>
-  <select class="form-control" name="department" id="department" required>
-    
-  </select>
-</div>
+
         <div class="form-group">
           <label for="password">Password</label>
           <input

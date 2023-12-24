@@ -1,5 +1,11 @@
 <?php
 include('../db_connection.php');
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: ../Login/login.html");
+  exit;
+}
 
 // Check connection
 if ($conn->connect_error) {
@@ -43,7 +49,7 @@ $result = $conn->query($sql);
             </div>
     
             <div class="sidebar">
-              <a href="index.html" class="active">
+              <a href="index.html" >
                 <span class="material-icons-sharp"> home </span>
                 <h3>Home</h3>
               </a>
@@ -57,7 +63,7 @@ $result = $conn->query($sql);
               </a>
     
 
-              <a href="batches.php">
+              <a href="batches.php" class="active">
                 <span class="material-icons-sharp"> grade </span>
                 <h3>Batches</h3>
               </a>
@@ -72,7 +78,7 @@ $result = $conn->query($sql);
                 <h3>Account Details</h3>
               </a>
     
-              <a href="report.html">
+              <a href="../Admin Dashboard/form_report.php">
                 <span class="material-icons-sharp"> report_gmailerrorred </span>
                 <h3>Reports</h3>
               </a>
@@ -82,7 +88,7 @@ $result = $conn->query($sql);
                 <h3>Settings</h3>
               </a>
               
-              <a href="logout.html">
+              <a href="../logout.php">
                 <span class="material-icons-sharp"> logout </span>
                 <h3>Logout</h3>
               </a>

@@ -10,6 +10,7 @@
 
     <?php 
       $userID = $_GET['id'];
+      session_start();
     ?>
 
     <script>

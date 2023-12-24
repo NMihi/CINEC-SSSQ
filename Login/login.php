@@ -1,18 +1,11 @@
 <?php
+include('../db_connection.php');
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the user input from the form
     $username = $_POST["email"];
     $password = $_POST["password"];
 
-    // Replace these with your MySQL database credentials
-    $hostname = "localhost";  // Change to your MySQL server hostname
-    $username_db = "root";  // Change to your MySQL username
-    $password_db = "";  // Change to your MySQL password
-    $database = "CINEC_SSSQ";    // Change to your MySQL database name
-
-    // Create a database connection
-    $conn = new mysqli($hostname, $username_db, $password_db, $database);
 
     // Check the connection
     if ($conn->connect_error) {
@@ -31,6 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         // User found, fetch user data
         $user = $result->fetch_assoc();
+        session_start();
+
+        //set session variables
+        $_SESSION['user_id']=$user['user_id'];
+        $_SESSION['name']=$user['name'];
+        $_SESSION['user_type']=$user['user_type'];
+        $_SESSION['Faculty']=$user['faculty'];
+       
+
 
         // Print user information (you can customize this part)
         if($user['user_type']=='Admin'){
@@ -49,3 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+ 

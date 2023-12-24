@@ -16,7 +16,7 @@
         <div class="toggle">
           <div class="logo">
             <img src="images/logo.png" />
-            <h2>Asmr<span class="danger">Prog</span></h2>
+            <h2>CINEC<span class="danger">SSSQ</span></h2>
           </div>
           <div class="close" id="close-btn">
             <span class="material-icons-sharp"> close </span>
@@ -46,7 +46,7 @@
             <h3>Settings</h3>
           </a>
 
-          <a href="logout.html">
+          <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>
           </a>

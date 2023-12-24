@@ -1,6 +1,7 @@
 <?php 
 // Step 3: Database Connection
 include('../db_connection.php');
+session_start();
 $userID = $_GET['id'];
 
 if ($conn->connect_error) {

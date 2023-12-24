@@ -1,5 +1,10 @@
 <?php
 include('../db_connection.php');
+session_start();
+if (!isset($_SESSION['user_id'])) {
+  header("Location: ../Login/login.html");
+  exit;
+}
 
 // Check connection
 if ($conn->connect_error) {
@@ -7,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch user data from the database
-$sql = "SELECT * FROM department,course where department.dep_id = course.dep_id";
+$sql = "SELECT * FROM fac_dep,course where fac_dep.fac_id = course.fac_id";
 $result = $conn->query($sql);
 
 ?>
@@ -39,7 +44,7 @@ $result = $conn->query($sql);
         </div>
 
         <div class="sidebar">
-          <a href="index.html" class="active">
+          <a href="index.html" >
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
@@ -47,7 +52,7 @@ $result = $conn->query($sql);
             <span class="material-icons-sharp"> view_list </span>
             <h3>Forms</h3>
           </a>
-          <a href="courseUI.php">
+          <a href="courseUI.php" class="active">
             <span class="material-icons-sharp"> school </span>
             <h3>Courses</h3>
           </a>
@@ -67,7 +72,7 @@ $result = $conn->query($sql);
             <h3>Account Details</h3>
           </a>
 
-          <a href="report.html">
+          <a href="../Admin Dashboard/form_report.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>
@@ -77,7 +82,7 @@ $result = $conn->query($sql);
             <h3>Settings</h3>
           </a>
 
-          <a href="logout.html">
+          <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>
           </a>
