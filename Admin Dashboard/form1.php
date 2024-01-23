@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinec SSSQ</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"> -->
 
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="report_home.css" /> 
+    <link rel="stylesheet" href="style2.css" /> 
 
   
 
@@ -31,15 +33,11 @@
             </div>
     
             <div class="sidebar">
-          <a href="index.html" class="active">
-            <span class="material-icons-sharp"> dashboard </span>
-            <h3>Dashboard</h3>
-          </a>
-          <a href="home.html">
-            <span class="material-icons-sharp"> home </span>
-            <h3>Home</h3>
-          </a>
-          <a href="form1.php">
+              <a href="index.php" >
+                <span class="material-icons-sharp"> home </span>
+                <h3>Home</h3>
+              </a>
+              <a href="form1.php" class="active">
                 <span class="material-icons-sharp"> view_list </span>
                 <h3>Forms</h3>
               </a>
@@ -47,7 +45,7 @@
                 <span class="material-icons-sharp"> school </span>
                 <h3>Courses</h3>
               </a>
-    
+  
 
               <a href="batches.php">
                 <span class="material-icons-sharp"> grade </span>
@@ -58,32 +56,38 @@
                 <span class="material-icons-sharp"> person </span>
                 <h3>Lecturers</h3>
               </a>
-          <a href="userManagement.php">
-            <span class="material-icons-sharp"> person_outline </span>
-            <h3>User Management</h3>
-          </a>
+    
+              <a href="account.php">
+                <span class="material-icons-sharp"> account_circle </span>
+                <h3>Account Details</h3>
+              </a>
+    
+              <a href="../Admin Dashboard/form_report.php">
+                <span class="material-icons-sharp"> report_gmailerrorred </span>
+                <h3>Reports</h3>
+              </a>
+    
+              <a href="settings.php">
+                <span class="material-icons-sharp"> settings </span>
+                <h3>Settings</h3>
+              </a>
+              
+              <a href="../logout.php">
+                <span class="material-icons-sharp"> logout </span>
+                <h3>Logout</h3>
+              </a>
 
-         
-          <a href="report_home.php">
-            <span class="material-icons-sharp"> report_gmailerrorred </span>
-            <h3>Reports</h3>
-          </a>
-          <a href="settings.html">
-            <span class="material-icons-sharp"> settings </span>
-            <h3>Settings</h3>
-          </a>
-         
-          <a href="../logout.php">
-            <span class="material-icons-sharp"> logout </span>
-            <h3>Logout</h3>
-          </a>
-        </div>
-      </aside>
+            </div>
+          </aside>
           <!-- end of aside -->
 
     <main>
           <div class="header">
-            <h1>Reports</h1>
+            <h1>Forms</h1>
+            <a href="../Request Form/RequestUI.php">
+              <div class="request_form">
+                  <h2>Create new form</h2>
+            </div></a>
           </div>
 
           
@@ -95,6 +99,12 @@
       // Step 3: Database Connection
       include('../db_connection.php');
       session_start();
+      if (!isset($_SESSION['user_id'])) {
+        header("Location: ../Login/login.html");
+        exit;
+      }
+      $userID=$_SESSION['user_id'];
+
       
       // Step 4: Fetch Data
       $sql = "SELECT * FROM request_form";

@@ -56,6 +56,25 @@ $result = $conn->query($sql);
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
+          <a href="form1.php">
+                <span class="material-icons-sharp"> view_list </span>
+                <h3>Forms</h3>
+              </a>
+              <a href="courseUI.php">
+                <span class="material-icons-sharp"> school </span>
+                <h3>Courses</h3>
+              </a>
+    
+
+              <a href="batches.php">
+                <span class="material-icons-sharp"> grade </span>
+                <h3>Batches</h3>
+              </a>
+    
+              <a href="lecturesUI.php">
+                <span class="material-icons-sharp"> person </span>
+                <h3>Lecturers</h3>
+              </a>
           <a href="userManagement.php" class="active">
             <span class="material-icons-sharp"> person_outline </span>
             <h3>User Management</h3>
