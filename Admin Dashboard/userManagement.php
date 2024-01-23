@@ -1,6 +1,14 @@
 <?php
 include('../db_connection.php');
 
+session_start();
+
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: ../Login/login.html");
+  exit;
+}
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -81,8 +89,8 @@ $result = $conn->query($sql);
           </div>
           <div class="profile">
             <div class="info">
-              <p>Hey, <b>Reza</b></p>
-              <small class="text-muted">Admin</small>
+              <p>Hey, <b><?php echo $_SESSION['name'] ?></b></p>
+              <small class="text-muted"><?php echo $_SESSION['user_type'] ?></small>
             </div>
             <div class="profile-photo">
               <img src="images/profile-1.jpg" />

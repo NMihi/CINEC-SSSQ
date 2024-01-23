@@ -85,7 +85,7 @@
         </div>
 
         <div class="sidebar">
-          <a href="index.html">
+          <a href="index.php" class="active">
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
@@ -98,6 +98,25 @@
             <h3>Courses</h3>
           </a>
 
+          <!-- <a href="#" class="active">
+            <span class="material-icons-sharp"> insights </span>
+            <h3>Analytics</h3> </a
+          >
+          <a href="#">
+            <span class="material-icons-sharp"> mail_outline </span>
+            <h3>Tickets</h3>
+            <span class="message-count">27</span>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp"> inventory </span>
+            <h3>Sale List</h3>
+          </a> -->
+
+          <!-- <a href="#">
+            <span class="material-icons-sharp"> add </span>
+            <h3>New Login</h3>
+          </a> -->
+
           <a href="batches.php">
             <span class="material-icons-sharp"> grade </span>
             <h3>Batches</h3>
@@ -108,7 +127,7 @@
             <h3>Lecturers</h3>
           </a>
 
-          <a href="account.html" class="active">
+          <a href="account1.php">
             <span class="material-icons-sharp"> account_circle </span>
             <h3>Account Details</h3>
           </a>
@@ -118,7 +137,7 @@
             <h3>Reports</h3>
           </a>
 
-          <a href="settings.html">
+          <a href="settings.php">
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>
@@ -138,11 +157,7 @@
       </main>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     -->
   </body>
 </html>

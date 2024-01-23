@@ -48,7 +48,7 @@ $result = $conn->query($sql);
         </div>
 
         <div class="sidebar">
-          <a href="index.html">
+          <a href="index.php">
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
@@ -71,7 +71,7 @@ $result = $conn->query($sql);
             <h3>Lecturers</h3>
           </a>
 
-          <a href="account.html">
+          <a href="account.php">
             <span class="material-icons-sharp"> account_circle </span>
             <h3>Account Details</h3>
           </a>
@@ -81,7 +81,7 @@ $result = $conn->query($sql);
             <h3>Reports</h3>
           </a>
 
-          <a href="settings.html">
+          <a href="settings.php">
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>
