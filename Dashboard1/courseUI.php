@@ -1,6 +1,7 @@
 <?php
 include('../db_connection.php');
 session_start();
+$fac=$_SESSION['Faculty'];
 if (!isset($_SESSION['user_id'])) {
   header("Location: ../Login/login.html");
   exit;
@@ -100,7 +101,7 @@ $result = $conn->query($sql);
               <select class="form-control" name="fac_id" id="fac_id" required>
                 <option value="NULL">Select a Faculty / Department</option>
                 <?php
-                  $sql1 = "SELECT * FROM fac_dep";
+                  $sql1 = "SELECT * FROM fac_dep WHERE fac_id='$fac'";
                   $result1 = $conn->query($sql1);
 
                     if ($result1->num_rows > 0) {

@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id']=$user['user_id'];
         $_SESSION['name']=$user['name'];
         $_SESSION['user_type']=$user['user_type'];
-        $_SESSION['Faculty']=$user['faculty'];
+        $_SESSION['Faculty']=$user['fac_dep'];
        
 
 
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($user['user_type']=='Admin'){
             header("Location: ../Admin Dashboard/userManagement.php");
         }elseif($user['user_type']=='Client'){
-            header("Location: ../Dashboard1/index.html");
+            header("Location: ../Dashboard1/index.php");
         }elseif($user['user_type']=='Super Admin'){
             header("Location: ../Admin Dashboard/userManagement.php");
         }
