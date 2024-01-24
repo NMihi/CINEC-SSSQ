@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch user data from the database
-$sql = "SELECT * FROM fac_dep,course where fac_dep.fac_id = course.fac_id";
+$sql = "SELECT * FROM fac_dep,course where fac_dep.fac_id = course.fac_id AND course.fac_id='$fac'";
 $result = $conn->query($sql);
 
 ?>
@@ -145,7 +145,7 @@ $result = $conn->query($sql);
 
         <!-- Recent Orders Table -->
         <div class="recent-orders">
-          <h2>Recent Orders</h2>
+          <h2>Course List</h2>
           <table>
             <thead>
               <tr>

@@ -1,6 +1,8 @@
 <?php
 include('../db_connection.php');
 session_start();
+$fac=$_SESSION['Faculty'];
+
 if (!isset($_SESSION['user_id'])) {
   header("Location: ../Login/login.html");
   exit;
@@ -12,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch user data from the database
-$sql = "SELECT * FROM lecturer";
+$sql = "SELECT * FROM lecturer WHERE fac_id='$fac'";
 $result = $conn->query($sql);
 
 ?>
@@ -104,7 +106,7 @@ $result = $conn->query($sql);
               <select class="form-control" name="fac_id" id="fac_id" required>
                 <option value="NULL">Select a Faculty / Department</option>
                 <?php
-                  $sql1 = "SELECT * FROM fac_dep";
+                  $sql1 = "SELECT * FROM fac_dep WHERE fac_id='$fac'";
                   $result1 = $conn->query($sql1);
 
                     if ($result1->num_rows > 0) {
@@ -139,7 +141,7 @@ $result = $conn->query($sql);
 
         <!-- Recent Orders Table -->
         <div class="recent-orders">
-          <h2>Recent Orders</h2>
+          <h2>Lecturers List</h2>
           <table>
             <thead>
               <tr>

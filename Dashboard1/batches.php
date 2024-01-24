@@ -13,8 +13,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch user data from the database
-$sql = "SELECT * FROM batches,course where batches.course_code = course.course_code";
+// Fetch course data from the database
+$sql = "SELECT * FROM batches,course where batches.course_code = course.course_code AND course.fac_id=$fac_id";
 $result = $conn->query($sql);
 
 ?>
@@ -151,7 +151,7 @@ $result = $conn->query($sql);
     
             <!-- Recent Orders Table -->
             <div class="recent-orders">
-              <h2>Recent Orders</h2>
+              <h2>Batch List</h2>
               <table>
                 <thead>
                   <tr>
@@ -177,7 +177,6 @@ $result = $conn->query($sql);
 
                 </tbody>
               </table>
-              <a href="#">Show All</a>
             </div>
             <!-- End of Recent Orders -->
           
