@@ -96,17 +96,19 @@
               
 
       <?php
-      // Step 3: Database Connection
+      //Database Connection
       include('../db_connection.php');
       session_start();
-      if (!isset($_SESSION['user_id'])) {
+
+      if ($_SESSION['user_type']!="Client") {
         header("Location: ../Login/login.html");
         exit;
       }
+
       $userID=$_SESSION['user_id'];
 
       
-      // Step 4: Fetch Data
+      //Fetch Data
       $sql = "SELECT * FROM request_form";
       $result = mysqli_query($conn, $sql);
       

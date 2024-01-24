@@ -2,7 +2,8 @@
 include('../db_connection.php');
 session_start();
 $fac=$_SESSION['Faculty'];
-if (!isset($_SESSION['user_id'])) {
+
+if ($_SESSION['user_type']!="Client") {
   header("Location: ../Login/login.html");
   exit;
 }
