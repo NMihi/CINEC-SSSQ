@@ -16,7 +16,7 @@
         <div class="toggle">
           <div class="logo">
             <img src="images/logo.png" />
-            <h2>Asmr<span class="danger">Prog</span></h2>
+            <h2>Cinec<span class="danger">SSSQ</span></h2>
           </div>
           <div class="close" id="close-btn">
             <span class="material-icons-sharp"> close </span>
