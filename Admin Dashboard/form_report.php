@@ -16,7 +16,7 @@
         <div class="toggle">
           <div class="logo">
             <img src="images/logo.png" />
-            <h2>CINEC<span class="danger">SSSQ</span></h2>
+            <h2>CINEC<span class="primary">SSSQ</span></h2>
           </div>
           <div class="close" id="close-btn">
             <span class="material-icons-sharp"> close </span>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="sidebar">
-          <a href="index.html">
+          <a href="index.html" class="active">
             <span class="material-icons-sharp"> dashboard </span>
             <h3>Dashboard</h3>
           </a>
@@ -33,30 +33,29 @@
             <h3>Home</h3>
           </a>
           <a href="form1.php">
-                <span class="material-icons-sharp"> view_list </span>
-                <h3>Forms</h3>
-              </a>
-              <a href="courseUI.php">
-                <span class="material-icons-sharp"> school </span>
-                <h3>Courses</h3>
-              </a>
-    
+            <span class="material-icons-sharp"> view_list </span>
+            <h3>Forms</h3>
+          </a>
+          <a href="courseUI.php">
+            <span class="material-icons-sharp"> school </span>
+            <h3>Courses</h3>
+          </a>
 
-              <a href="batches.php">
-                <span class="material-icons-sharp"> grade </span>
-                <h3>Batches</h3>
-              </a>
-    
-              <a href="lecturesUI.php">
-                <span class="material-icons-sharp"> person </span>
-                <h3>Lecturers</h3>
-              </a>
+          <a href="batches.php">
+            <span class="material-icons-sharp"> grade </span>
+            <h3>Batches</h3>
+          </a>
+
+          <a href="lecturesUI.php">
+            <span class="material-icons-sharp"> person </span>
+            <h3>Lecturers</h3>
+          </a>
           <a href="userManagement.php">
             <span class="material-icons-sharp"> person_outline </span>
             <h3>User Management</h3>
           </a>
 
-          <a href="report_home.php"  class="active">
+          <a href="form_report.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>
@@ -64,7 +63,6 @@
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>
-
           <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>

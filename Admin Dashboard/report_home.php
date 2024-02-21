@@ -19,18 +19,18 @@
 <body>
     <div class="container">
 
-        <aside>
-            <div class="toggle">
-              <div class="logo">
-                <img src="images/logo.png" />
-                <h2>CINEC<span class="danger">SSSQ</span></h2>
-              </div>
-              <div class="close" id="close-btn">
-                <span class="material-icons-sharp"> close </span>
-              </div>
-            </div>
-    
-            <div class="sidebar">
+    <aside>
+        <div class="toggle">
+          <div class="logo">
+            <img src="images/logo.png" />
+            <h2>CINEC<span class="primary">SSSQ</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp"> close </span>
+          </div>
+        </div>
+
+        <div class="sidebar">
           <a href="index.html" class="active">
             <span class="material-icons-sharp"> dashboard </span>
             <h3>Dashboard</h3>
@@ -40,31 +40,29 @@
             <h3>Home</h3>
           </a>
           <a href="form1.php">
-                <span class="material-icons-sharp"> view_list </span>
-                <h3>Forms</h3>
-              </a>
-              <a href="courseUI.php">
-                <span class="material-icons-sharp"> school </span>
-                <h3>Courses</h3>
-              </a>
-    
+            <span class="material-icons-sharp"> view_list </span>
+            <h3>Forms</h3>
+          </a>
+          <a href="courseUI.php">
+            <span class="material-icons-sharp"> school </span>
+            <h3>Courses</h3>
+          </a>
 
-              <a href="batches.php">
-                <span class="material-icons-sharp"> grade </span>
-                <h3>Batches</h3>
-              </a>
-    
-              <a href="lecturesUI.php">
-                <span class="material-icons-sharp"> person </span>
-                <h3>Lecturers</h3>
-              </a>
+          <a href="batches.php">
+            <span class="material-icons-sharp"> grade </span>
+            <h3>Batches</h3>
+          </a>
+
+          <a href="lecturesUI.php">
+            <span class="material-icons-sharp"> person </span>
+            <h3>Lecturers</h3>
+          </a>
           <a href="userManagement.php">
             <span class="material-icons-sharp"> person_outline </span>
             <h3>User Management</h3>
           </a>
 
-         
-          <a href="report_home.php">
+          <a href="form_report.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>
@@ -72,7 +70,6 @@
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>
-         
           <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>
@@ -95,6 +92,11 @@
       // Step 3: Database Connection
       include('../db_connection.php');
       session_start();
+
+      if ($_SESSION['user_type']=="Client") {
+        header("Location: ../Login/login.html");
+        exit;
+      }
       
       // Step 4: Fetch Data
       $sql = "SELECT * FROM request_form";
