@@ -73,12 +73,12 @@ while ($row = mysqli_fetch_assoc($result) ) {
 echo '<form action="StudentFormSubmit.php?id='.$userID.'"method="post">';
 echo'       <div class="form-group section">
             <label for="Course">Course:</label>
-            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="CourseName" value="'.$row['program_name'].'" required>
+            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="CourseName" value="'.$row['course'].'" required>
         </div>';
 
 echo' <div class="form-group section">
             <label for="CourseCode">Course Code:</label>
-            <input type="text" class="form-control" id="CourseCode" placeholder="Enter Course Code" name="CourseCode" value="'.$row['program_code'].'" required>
+            <input type="text" class="form-control" id="CourseCode" placeholder="Enter Course Code" name="CourseCode" value="'.$row['course'].'" required>
         </div>';
 
 echo' <div class="form-group section">
