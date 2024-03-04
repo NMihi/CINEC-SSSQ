@@ -31,7 +31,7 @@
         </div>
 
         <div class="sidebar">
-          <a href="index.html" class="active">
+          <a href="index.html" >
             <span class="material-icons-sharp"> dashboard </span>
             <h3>Dashboard</h3>
           </a>
@@ -62,7 +62,7 @@
             <h3>User Management</h3>
           </a>
 
-          <a href="form_report.php">
+          <a href="form_report.php" class="active">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>
@@ -89,7 +89,7 @@
               
 
       <?php
-      // Step 3: Database Connection
+      //Database Connection
       include('../db_connection.php');
       session_start();
 
@@ -98,12 +98,12 @@
         exit;
       }
       
-      // Step 4: Fetch Data
-      $sql = "SELECT * FROM request_form";
+      // Fetch Data
+      $sql = "SELECT * FROM request_form,batches where request_form.batch_no = batches.batch_id";
       $result = mysqli_query($conn, $sql);
       
       if (mysqli_num_rows($result) > 0) {
-        // echo '<form >';
+        
         $sectionNumber = 1;
       while ($row = mysqli_fetch_assoc($result) ) {
           
@@ -112,7 +112,7 @@
         <div class="status">
           
             <div class="info">
-              <h2>'.$row['batch_no'] .'_'. $row['semester'].'</h2>
+            <h2>'.$row['course'] .'_'.$row['batch_name'] .'_'. $row['semester'].'</h2>
               <div class="link_placeholder">
               <input type="text" class="link" id="link'.$sectionNumber.'" name="link'.$sectionNumber.'" value="http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'" title="Full link: http://localhost/CINEC-SSSQ/Student%20Form/StudentForm.php?id='.$row['request_id'].'" readonly>
               
@@ -155,7 +155,7 @@
         
   
 }
-  // Step 8: Close Database Connection
+  // Close Database Connection
   mysqli_close($conn);
 
 ?>

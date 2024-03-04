@@ -70,10 +70,10 @@ if ($_SESSION['user_type']!="Client") {
             <h3>Account Details</h3>
           </a>
 
-          <a href="../Admin Dashboard/form_report.php">
+          <!-- <a href="../Admin Dashboard/form_report.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
-          </a>
+          </a> -->
 
           <a href="settings.php">
             <span class="material-icons-sharp"> settings </span>

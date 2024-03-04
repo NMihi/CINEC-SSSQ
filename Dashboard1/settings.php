@@ -85,7 +85,7 @@
         </div>
 
         <div class="sidebar">
-          <a href="index.php" class="active">
+          <a href="index.php" >
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
@@ -98,25 +98,6 @@
             <h3>Courses</h3>
           </a>
 
-          <!-- <a href="#" class="active">
-            <span class="material-icons-sharp"> insights </span>
-            <h3>Analytics</h3> </a
-          >
-          <a href="#">
-            <span class="material-icons-sharp"> mail_outline </span>
-            <h3>Tickets</h3>
-            <span class="message-count">27</span>
-          </a>
-          <a href="#">
-            <span class="material-icons-sharp"> inventory </span>
-            <h3>Sale List</h3>
-          </a> -->
-
-          <!-- <a href="#">
-            <span class="material-icons-sharp"> add </span>
-            <h3>New Login</h3>
-          </a> -->
-
           <a href="batches.php">
             <span class="material-icons-sharp"> grade </span>
             <h3>Batches</h3>
@@ -127,17 +108,17 @@
             <h3>Lecturers</h3>
           </a>
 
-          <a href="account1.php">
+          <a href="account.php">
             <span class="material-icons-sharp"> account_circle </span>
             <h3>Account Details</h3>
           </a>
 
-          <a href="../Admin Dashboard/form_report.php">
+          <!-- <a href="../Admin Dashboard/form_report.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
-          </a>
+          </a> -->
 
-          <a href="settings.php">
+          <a href="settings.php" class="active">
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>

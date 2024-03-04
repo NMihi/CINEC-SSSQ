@@ -1,3 +1,10 @@
+<?php
+//Database Connection
+include('../db_connection.php');
+session_start();
+$userID = $_GET['id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -103,8 +110,17 @@
 
       </div>
         <h1>Report</h1>
-        <!-- Title-->
-        <div class="singleBar">
+
+          <?php
+          //Fetch Data
+          $sql = "SELECT * FROM form_submit WHERE request_id = $userID";
+          $result = mysqli_query($conn, $sql);
+
+          //Generate the Form
+          while ($row = mysqli_fetch_assoc($result) ){
+              
+          echo '
+          <div class="singleBar">
           <div class="user-list">
             <div class="user">
               <h1>Student Satisfaction Survey Report</h1>
@@ -114,13 +130,13 @@
         </div>
         <!-- End of Title -->
 
-        <!-- Form specification -->
+
         <div class="doubleBar">
           <div class="sales">
             <div class="status">
               <div class="info">
                 <h2>Faculty: </h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['course_name'].'</h3>
               </div>
             </div>
           </div>
@@ -128,7 +144,7 @@
             <div class="status">
               <div class="info">
                 <h2>Department: </h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['course_name'].'</h3>
               </div>
             </div>
           </div>
@@ -139,7 +155,7 @@
           <div class="user-list">
             <div class="Ctitle">
                 <h2>Course Title: </h2>
-                <h3>$65,024</h3>    
+                <h3>'.$row['course_name'].'</h3>    
             </div>
           </div>
         </div>
@@ -150,7 +166,7 @@
             <div class="status">
               <div class="info2">
                 <h2>Date</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['submitted_date'].'</h3>
               </div>
             </div>
           </div>
@@ -158,7 +174,7 @@
             <div class="status">
               <div class="info2">
                 <h2>Batch</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['batch'].'</h3>
               </div>
             </div>
           </div>
@@ -166,7 +182,7 @@
             <div class="status">
               <div class="info2">
                 <h2>Course Code</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['course_code'].'</h3>
               </div>
             </div>
           </div>
@@ -174,15 +190,15 @@
             <div class="status">
               <div class="info2">
                 <h2>Students</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['submitted_date'].'</h3>
               </div>
             </div>
           </div>
         </div>
-        <!-- End of Form specification -->
+
 
         <br>
-        <!-- Recent Orders Table -->
+
         <div class="recent-orders">
           <h2>Teaching, Training, Learning Process</h2>
           <table>
@@ -196,7 +212,6 @@
             <tbody></tbody>
           </table>
         </div>
-        <!-- End of Recent Orders -->
         <br><br>
 
         <!-- Start of Learning Environment / Infrastructure -->
@@ -280,6 +295,11 @@
           </div>
         </div>
         <br><br>
+          ';
+          }
+        ?>
+
+        
       </main>
       <!-- End of Main Content -->
     </div>

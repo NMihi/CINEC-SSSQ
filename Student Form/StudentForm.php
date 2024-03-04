@@ -54,19 +54,18 @@
         Measurement of student satisfaction is of vital importance to evaluate organizations performance. This questionnaire may help us to identify deficiencies, strengths, weaknesses, threats, risks, and opportunities required to be recognized. Your perception of our service will lead to incremental improvements and others could be significantly beneficial for all interested parties. However, the implementation of improvements remains entirely at the discretion of the management, as proper planning, allocation of funds, and the impact on the organization need to be evaluated before action. Students necessarily may not always be right. Complaints in particular need to be investigated by the relevant head of Departments/Sections for validity and accuracy. Management intends to fulfill the needs and expectations of the student to an extent affordable to the management. The implementation of corrections and corrective action is the responsibility of the Head of Department/section.
     </p></div>
 <?php
-// Step 3: Database Connection
+//Database Connection
 include('../db_connection.php');
 session_start();
 $userID = $_GET['id'];
 
-// Step 4: Fetch Data
+//Fetch Data
 $sql = "SELECT * FROM request_form WHERE request_id = $userID";
 $result = mysqli_query($conn, $sql);
 
 
 
-// Step 5: Generate the Form
-
+//Generate the Form
 while ($row = mysqli_fetch_assoc($result) ) {
     
    
