@@ -81,7 +81,7 @@ $result = $conn->query($sql);
             <h3>User Management</h3>
           </a>
 
-          <a href="form_report.php">
+          <a href="report_home.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>

@@ -12,7 +12,15 @@
     <link rel="stylesheet" href="report_home.css" /> 
 
   
-
+<style>main .analyse > a {
+  background-color: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+  /* cursor: pointer; */
+  transition: all 0.3s ease;
+}</style>
    
 
 </head>
@@ -62,7 +70,7 @@
             <h3>User Management</h3>
           </a>
 
-          <a href="form_report.php" class="active">
+          <a href="report_home.php" class="active">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>
@@ -107,7 +115,7 @@
         $sectionNumber = 1;
       while ($row = mysqli_fetch_assoc($result) ) {
           
-         
+        echo '<a href="http://localhost/CINEC-SSSQ/Admin%20Dashboard/form_report.php?id=' . $row['request_id'] . '">';
         echo'   <div class="forms">
         <div class="status">
           
@@ -122,6 +130,7 @@
           
         </div>
       </div>';
+      echo '</a>';
 
       echo'
       <script>

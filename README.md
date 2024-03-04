@@ -12,7 +12,7 @@ name VARCHAR(50) NOT NULL,
 password VARCHAR(255) NOT NULL,
 user_type ENUM('Client', 'Admin', 'Super Admin') NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE,
-fac_dep VARCHAR(50)DEFAULT NULL,
+fac_dep VARCHAR(50)DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS request_form (
@@ -94,14 +94,14 @@ INSERT INTO fac_dep (fac_id,fac_or_dep) VALUES
 ('4','Biomedical Science'),
 ('5','Pharmacy and Pharmaceutical Sciences'),
 ('6','Cosmetic Science'),
-('7','Health and Medical Sciences');
+('7','Health and Medical Sciences'),
 ('8','Logistics and Transport'),
 ('9','Management and Business Studies'),
 ('10','Education'),
 ('11','English'),
 ('12','English Language Teaching Unit'),
 ('13','Navigation'),
-('14','Safety & Survival Training');
+('14','Safety & Survival Training'),
 ('15','Marine Electronics & Radio Communications'),
 ('16','Maritime Simulation'),
 ('17','Marine Engineering'),
