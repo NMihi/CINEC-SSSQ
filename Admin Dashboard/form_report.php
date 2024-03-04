@@ -131,21 +131,11 @@ $userID = $_GET['id'];
         <!-- End of Title -->
 
 
-        <div class="doubleBar">
-          <div class="sales">
-            <div class="status">
-              <div class="info">
-                <h2>Faculty: </h2>
-                <h3>'.$row['course_name'].'</h3>
-              </div>
-            </div>
-          </div>
-          <div class="sales">
-            <div class="status">
-              <div class="info">
-                <h2>Department: </h2>
-                <h3>'.$row['course_name'].'</h3>
-              </div>
+        <div class="singleBar">
+          <div class="user-list">
+            <div class="Ctitle">
+                <h2>Faculty / Department: </h2>
+                <h3>'.$row['course_name'].'</h3>    
             </div>
           </div>
         </div>
