@@ -12,9 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch user data from the database
-$sql = "SELECT * FROM fac_dep,course where fac_dep.fac_id = course.fac_id";
-$result = $conn->query($sql);
+
 
 ?>
 
@@ -152,10 +150,14 @@ $result = $conn->query($sql);
               <tr>
                 <th>Course ID</th>
                 <th>Course Name</th>
+                <th>Faculty / Department</th>
               </tr>
             </thead>
             <tbody>
               <?php
+              // Fetch user data from the database
+            $sql = "SELECT * FROM fac_dep,course where fac_dep.fac_id = course.fac_id";
+            $result = $conn->query($sql);
             if ($result->num_rows > 0) { while ($row = $result->fetch_assoc()) {
               echo "
               <tr>
@@ -163,7 +165,9 @@ $result = $conn->query($sql);
                 <td>" . $row["course_code"] . "</td>
                 "; echo "
                 <td>" . $row["course_name"] . "</td>
-                ";  echo "
+                "; echo "
+                <td>" . $row["fac_or_dep"] . "</td>
+                "; echo "
               </tr>
               "; } } else {
                 echo "<tr><td colspan='5'>No courses found</td></tr>";

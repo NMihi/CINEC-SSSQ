@@ -110,7 +110,7 @@ $result = $conn->query($sql);
                       <select class="form-control" name="course" id="course" required>
                         <option value="NULL">Select a Course</option>
                         <?php
-                          $sql1 = "SELECT * FROM course where fac_id='$fac_id'";
+                          $sql1 = "SELECT * FROM course";
                           $result1 = $conn->query($sql1);
 
                             if ($result1->num_rows > 0) {
@@ -176,7 +176,7 @@ $result = $conn->query($sql);
 
                 </tbody>
               </table>
-              <a href="#">Show All</a>
+
             </div>
             <!-- End of Recent Orders -->
           
