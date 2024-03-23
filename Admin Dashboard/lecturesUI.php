@@ -12,9 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch user data from the database
-$sql = "SELECT * FROM lecturer";
-$result = $conn->query($sql);
+
 
 ?>
 <!DOCTYPE html>
@@ -147,17 +145,23 @@ $result = $conn->query($sql);
               <tr>
                 <th>Lec ID</th>
                 <th>Lecturer's Name</th>
+                <th>Faculty / Department</th>
               </tr>
             </thead>
             <tbody>
               <?php
-            if ($result->num_rows > 0) { while ($row = $result->fetch_assoc()) {
+              // Fetch user data from the database
+              $sql = "SELECT * FROM lecturer,fac_dep where lecturer.fac_id=fac_dep.fac_id";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) { while ($row = $result->fetch_assoc()) {
               echo "
               <tr>
                 "; echo "
                 <td>" . $row["lec_id"] . "</td>
                 "; echo "
                 <td>" . $row["lec_name"] . "</td>
+                "; echo "
+                <td>" . $row["fac_or_dep"] . "</td>
                 ";  echo "
               </tr>
               "; } } else {
