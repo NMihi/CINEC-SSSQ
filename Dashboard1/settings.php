@@ -85,7 +85,7 @@
         </div>
 
         <div class="sidebar">
-          <a href="index.html" class="active">
+          <a href="index.php" >
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
@@ -93,56 +93,37 @@
             <span class="material-icons-sharp"> view_list </span>
             <h3>Forms</h3>
           </a>
-          <a href="course.html">
+          <a href="courseUI.php">
             <span class="material-icons-sharp"> school </span>
             <h3>Courses</h3>
           </a>
-
-          <!-- <a href="#" class="active">
-            <span class="material-icons-sharp"> insights </span>
-            <h3>Analytics</h3> </a
-          >
-          <a href="#">
-            <span class="material-icons-sharp"> mail_outline </span>
-            <h3>Tickets</h3>
-            <span class="message-count">27</span>
-          </a>
-          <a href="#">
-            <span class="material-icons-sharp"> inventory </span>
-            <h3>Sale List</h3>
-          </a> -->
-
-          <!-- <a href="#">
-            <span class="material-icons-sharp"> add </span>
-            <h3>New Login</h3>
-          </a> -->
 
           <a href="batches.php">
             <span class="material-icons-sharp"> grade </span>
             <h3>Batches</h3>
           </a>
 
-          <a href="lectures.html">
+          <a href="lecturesUI.php">
             <span class="material-icons-sharp"> person </span>
             <h3>Lecturers</h3>
           </a>
 
-          <a href="account1.html">
+          <a href="account.php">
             <span class="material-icons-sharp"> account_circle </span>
             <h3>Account Details</h3>
           </a>
 
-          <a href="report.html">
+          <!-- <a href="../Admin Dashboard/form_report.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
-          </a>
+          </a> -->
 
-          <a href="settings.html">
+          <a href="settings.php" class="active">
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>
 
-          <a href="logout.html">
+          <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>
           </a>

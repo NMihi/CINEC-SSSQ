@@ -60,7 +60,7 @@
             <h3>Account Details</h3>
           </a>
 
-          <a href="Dashboard1/form_report.php">
+          <a href="report.html">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>

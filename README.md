@@ -12,16 +12,13 @@ name VARCHAR(50) NOT NULL,
 password VARCHAR(255) NOT NULL,
 user_type ENUM('Client', 'Admin', 'Super Admin') NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE,
-faculty VARCHAR(50)DEFAULT NULL,
-department VARCHAR(50) DEFAULT NULL
+fac_dep VARCHAR(50)DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS request_form (
 request_id INT AUTO_INCREMENT PRIMARY KEY,
-faculty VARCHAR(50) NOT NULL,
-department VARCHAR(50) NOT NULL,
-program_name VARCHAR(100) NOT NULL,
-program_code VARCHAR(50) NOT NULL,
+fac_dep VARCHAR(50) NOT NULL,
+course VARCHAR(100) NOT NULL,
 batch_no VARCHAR(50) NOT NULL,
 semester VARCHAR(50) NOT NULL,
 no_of_students INT NOT NULL,
@@ -38,30 +35,23 @@ lecturer_name VARCHAR(100) NOT NULL,
 FOREIGN KEY (request_id) REFERENCES request_form(request_id)
 );
 
-CREATE TABLE IF NOT EXISTS faculty (
+CREATE TABLE IF NOT EXISTS fac_dep (
 fac_id INT AUTO_INCREMENT PRIMARY KEY,
-faculty VARCHAR(100) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS department (
-dep_id INT AUTO_INCREMENT PRIMARY KEY,
-fac_id INT NOT NULL,
-department VARCHAR(100) NOT NULL,
-FOREIGN KEY (fac_id) REFERENCES faculty(fac_id)
+fac_or_dep VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS course (
 course_code VARCHAR(100) PRIMARY KEY,
 course_name VARCHAR(100) NOT NULL,
-dep_id INT NOT NULL,
-FOREIGN KEY (dep_id) REFERENCES department(dep_id)
+fac_id INT NOT NULL,
+FOREIGN KEY (fac_id) REFERENCES fac_dep(fac_id)
 );
 
 CREATE TABLE IF NOT EXISTS lecturer (
 lec_id INT AUTO_INCREMENT PRIMARY KEY,
 lec_name VARCHAR(100) NOT NULL,
-dep_id INT NOT NULL,
-FOREIGN KEY (dep_id) REFERENCES department(dep_id)
+fac_id INT NOT NULL,
+FOREIGN KEY (fac_id) REFERENCES fac_dep(fac_id)
 );
 
 CREATE TABLE IF NOT EXISTS form_submit (
@@ -97,25 +87,24 @@ course_code VARCHAR(100) NOT NULL,
 FOREIGN KEY (course_code) REFERENCES course(course_code)
 );
 
-INSERT INTO faculty (fac_id,faculty) VALUES ('1','Engineering & Technology'),('2','Health Sciences'),('3','Management & Social Sciences'),('4','Humanities & Education'),('5','Maritime Sciences'),('6','Marine Engineering');
-
-INSERT INTO department (dep_id,fac_id,department) VALUES
-('1','1','Information Technology'),
-('2','1','Civil Engineering'),
-('3','1','Mechanical & Automotive Engineering'),
-('4','1','Electrical & Electronic Engineering'),
-('5','2','Biomedical Science'),
-('6','2','Pharmacy and Pharmaceutical Sciences'),
-('7','2','Cosmetic Science'),
-('8','2','Health and Medical Sciences'),
-('9','3','Logistics and Transport'),
-('10','3','Management and Business Studies'),
-('11','4','Education'),
-('12','4','English'),
-('13','4','English Language Teaching Unit'),
-('14','5','Navigation'),
-('15','5','Safety & Survival Training'),
-('16','5','Marine Electronics & Radio Communications'),
-('17','5','Maritime Simulation'),
-('18','6','Marine Engineering'),
-('19','6','Marine Electrical');
+INSERT INTO fac_dep (fac_id,fac_or_dep) VALUES
+('1','Civil Engineering'),
+('2','Mechanical & Automotive Engineering'),
+('3','Electrical & Electronic Engineering'),
+('4','Biomedical Science'),
+('5','Pharmacy and Pharmaceutical Sciences'),
+('6','Cosmetic Science'),
+('7','Health and Medical Sciences'),
+('8','Logistics and Transport'),
+('9','Management and Business Studies'),
+('10','Education'),
+('11','English'),
+('12','English Language Teaching Unit'),
+('13','Navigation'),
+('14','Safety & Survival Training'),
+('15','Marine Electronics & Radio Communications'),
+('16','Maritime Simulation'),
+('17','Marine Engineering'),
+('18','Marine Electrical'),
+('19','Computer Science'),
+('20','Information Technology');

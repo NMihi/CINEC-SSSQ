@@ -1,9 +1,8 @@
 <?php
 include('../db_connection.php');
 session_start();
-$fac=$_SESSION['Faculty'];
 
-if ($_SESSION['user_type']!="Client") {
+if ($_SESSION['user_type']=="Client") {
   header("Location: ../Login/login.html");
   exit;
 }
@@ -14,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch user data from the database
-$sql = "SELECT * FROM fac_dep,course where fac_dep.fac_id = course.fac_id AND course.fac_id='$fac'";
+$sql = "SELECT * FROM fac_dep,course where fac_dep.fac_id = course.fac_id";
 $result = $conn->query($sql);
 
 ?>
@@ -34,11 +33,11 @@ $result = $conn->query($sql);
   </head>
   <body>
     <div class="container">
-      <aside>
+    <aside>
         <div class="toggle">
           <div class="logo">
             <img src="images/logo.png" />
-            <h2>CINEC<span class="danger">SSSQ</span></h2>
+            <h2>CINEC<span class="primary">SSSQ</span></h2>
           </div>
           <div class="close" id="close-btn">
             <span class="material-icons-sharp"> close </span>
@@ -46,7 +45,11 @@ $result = $conn->query($sql);
         </div>
 
         <div class="sidebar">
-          <a href="index.php" >
+          <a href="index.html" class="active">
+            <span class="material-icons-sharp"> dashboard </span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="home.html">
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
@@ -54,7 +57,7 @@ $result = $conn->query($sql);
             <span class="material-icons-sharp"> view_list </span>
             <h3>Forms</h3>
           </a>
-          <a href="courseUI.php" class="active">
+          <a href="courseUI.php">
             <span class="material-icons-sharp"> school </span>
             <h3>Courses</h3>
           </a>
@@ -68,22 +71,19 @@ $result = $conn->query($sql);
             <span class="material-icons-sharp"> person </span>
             <h3>Lecturers</h3>
           </a>
-
-          <a href="account.php">
-            <span class="material-icons-sharp"> account_circle </span>
-            <h3>Account Details</h3>
+          <a href="userManagement.php">
+            <span class="material-icons-sharp"> person_outline </span>
+            <h3>User Management</h3>
           </a>
 
-          <!-- <a href="../Admin Dashboard/form_report.php">
+          <a href="report_home.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
-          </a> -->
-
-          <a href="settings.php">
+          </a>
+          <a href="settings.html">
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>
-
           <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>
@@ -102,7 +102,7 @@ $result = $conn->query($sql);
               <select class="form-control" name="fac_id" id="fac_id" required>
                 <option value="NULL">Select a Faculty / Department</option>
                 <?php
-                  $sql1 = "SELECT * FROM fac_dep WHERE fac_id='$fac'";
+                  $sql1 = "SELECT * FROM fac_dep";
                   $result1 = $conn->query($sql1);
 
                     if ($result1->num_rows > 0) {
@@ -146,7 +146,7 @@ $result = $conn->query($sql);
 
         <!-- Recent Orders Table -->
         <div class="recent-orders">
-          <h2>Course List</h2>
+          <h2>Recent Orders</h2>
           <table>
             <thead>
               <tr>

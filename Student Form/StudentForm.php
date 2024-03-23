@@ -26,6 +26,7 @@
            
             
 }
+
 .container {
         
         max-width: 800px;
@@ -35,7 +36,7 @@
         margin-bottom: 50px;
         margin-top: 20px;
         border-radius: 25px;
-        
+        width:95%;
     }
 
     input[type="text"],[type="date"]{
@@ -46,38 +47,38 @@
 <body>   
 <div class="container mt-5">
     <div class="section">
-    <center><h2 class="text-left">
-        STUDENT SATISFACTION SURVEY QUESTIONNAIRE
-    </h2></center>
+    <h2 class="text-left">
+    <center>STUDENT SATISFACTION SURVEY QUESTIONNAIRE</center>
+    </h2><br>
     <p class="text-left">
         Dear Course Delegate/Student,<br>
         Measurement of student satisfaction is of vital importance to evaluate organizations performance. This questionnaire may help us to identify deficiencies, strengths, weaknesses, threats, risks, and opportunities required to be recognized. Your perception of our service will lead to incremental improvements and others could be significantly beneficial for all interested parties. However, the implementation of improvements remains entirely at the discretion of the management, as proper planning, allocation of funds, and the impact on the organization need to be evaluated before action. Students necessarily may not always be right. Complaints in particular need to be investigated by the relevant head of Departments/Sections for validity and accuracy. Management intends to fulfill the needs and expectations of the student to an extent affordable to the management. The implementation of corrections and corrective action is the responsibility of the Head of Department/section.
     </p></div>
 <?php
-// Step 3: Database Connection
+//Database Connection
 include('../db_connection.php');
+session_start();
 $userID = $_GET['id'];
 
-// Step 4: Fetch Data
+//Fetch Data
 $sql = "SELECT * FROM request_form WHERE request_id = $userID";
 $result = mysqli_query($conn, $sql);
 
 
 
-// Step 5: Generate the Form
-
+//Generate the Form
 while ($row = mysqli_fetch_assoc($result) ) {
     
    
 echo '<form action="StudentFormSubmit.php?id='.$userID.'"method="post">';
 echo'       <div class="form-group section">
             <label for="Course">Course:</label>
-            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="CourseName" value="'.$row['program_name'].'" required>
+            <input type="text" class="form-control" id="CourseName" placeholder="Enter Your Course Name" name="CourseName" value="'.$row['course'].'" required>
         </div>';
 
 echo' <div class="form-group section">
             <label for="CourseCode">Course Code:</label>
-            <input type="text" class="form-control" id="CourseCode" placeholder="Enter Course Code" name="CourseCode" value="'.$row['program_code'].'" required>
+            <input type="text" class="form-control" id="CourseCode" placeholder="Enter Course Code" name="CourseCode" value="'.$row['course'].'" required>
         </div>';
 
 echo' <div class="form-group section">

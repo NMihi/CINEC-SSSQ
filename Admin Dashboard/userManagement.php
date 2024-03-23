@@ -1,6 +1,14 @@
 <?php
 include('../db_connection.php');
 
+session_start();
+
+
+if ($_SESSION['user_type']!="Super Admin") {
+  header("Location: ../Login/login.html");
+  exit;
+}
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -48,6 +56,25 @@ $result = $conn->query($sql);
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
+          <a href="form1.php">
+                <span class="material-icons-sharp"> view_list </span>
+                <h3>Forms</h3>
+              </a>
+              <a href="courseUI.php">
+                <span class="material-icons-sharp"> school </span>
+                <h3>Courses</h3>
+              </a>
+    
+
+              <a href="batches.php">
+                <span class="material-icons-sharp"> grade </span>
+                <h3>Batches</h3>
+              </a>
+    
+              <a href="lecturesUI.php">
+                <span class="material-icons-sharp"> person </span>
+                <h3>Lecturers</h3>
+              </a>
           <a href="userManagement.php" class="active">
             <span class="material-icons-sharp"> person_outline </span>
             <h3>User Management</h3>
@@ -62,7 +89,7 @@ $result = $conn->query($sql);
             <h3>Settings</h3>
           </a>
 
-          <a href="logout.html">
+          <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>
           </a>
@@ -81,8 +108,8 @@ $result = $conn->query($sql);
           </div>
           <div class="profile">
             <div class="info">
-              <p>Hey, <b>Reza</b></p>
-              <small class="text-muted">Admin</small>
+              <p>Hey, <b><?php echo $_SESSION['name'] ?></b></p>
+              <small class="text-muted"><?php echo $_SESSION['user_type'] ?></small>
             </div>
             <div class="profile-photo">
               <img src="images/profile-1.jpg" />

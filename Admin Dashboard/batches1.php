@@ -1,15 +1,14 @@
 <?php
 
 
-//Database Connection
+// Step 3: Database Connection
 include('../db_connection.php');
 session_start();
-
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../Login/login.html");
     exit;
   }
-
+//$userID = $_GET['id'];
 
 // Check connection
 if ($conn->connect_error) {

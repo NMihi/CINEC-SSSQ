@@ -1,3 +1,10 @@
+<?php
+//Database Connection
+include('../db_connection.php');
+session_start();
+$userID = $_GET['id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +23,7 @@
         <div class="toggle">
           <div class="logo">
             <img src="images/logo.png" />
-            <h2>Cinec<span class="danger">SSSQ</span></h2>
+            <h2>Asmr<span class="danger">Prog</span></h2>
           </div>
           <div class="close" id="close-btn">
             <span class="material-icons-sharp"> close </span>
@@ -24,7 +31,7 @@
         </div>
 
         <div class="sidebar">
-          <a href="index.html">
+          <a href="index.html" class="active">
             <span class="material-icons-sharp"> dashboard </span>
             <h3>Dashboard</h3>
           </a>
@@ -32,12 +39,30 @@
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
+          <a href="form1.php">
+            <span class="material-icons-sharp"> view_list </span>
+            <h3>Forms</h3>
+          </a>
+          <a href="courseUI.php">
+            <span class="material-icons-sharp"> school </span>
+            <h3>Courses</h3>
+          </a>
+
+          <a href="batches.php">
+            <span class="material-icons-sharp"> grade </span>
+            <h3>Batches</h3>
+          </a>
+
+          <a href="lecturesUI.php">
+            <span class="material-icons-sharp"> person </span>
+            <h3>Lecturers</h3>
+          </a>
           <a href="userManagement.php">
             <span class="material-icons-sharp"> person_outline </span>
             <h3>User Management</h3>
           </a>
 
-          <a href="report_home.php"  class="active">
+          <a href="report_home.php">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
           </a>
@@ -45,8 +70,7 @@
             <span class="material-icons-sharp"> settings </span>
             <h3>Settings</h3>
           </a>
-
-          <a href="logout.html">
+          <a href="../logout.php">
             <span class="material-icons-sharp"> logout </span>
             <h3>Logout</h3>
           </a>
@@ -86,8 +110,17 @@
 
       </div>
         <h1>Report</h1>
-        <!-- Title-->
-        <div class="singleBar">
+
+          <?php
+          //Fetch Data
+          $sql = "SELECT * FROM form_submit WHERE request_id = $userID";
+          $result = mysqli_query($conn, $sql);
+
+          //Generate the Form
+          while ($row = mysqli_fetch_assoc($result) ){
+              
+          echo '
+          <div class="singleBar">
           <div class="user-list">
             <div class="user">
               <h1>Student Satisfaction Survey Report</h1>
@@ -97,22 +130,12 @@
         </div>
         <!-- End of Title -->
 
-        <!-- Form specification -->
-        <div class="doubleBar">
-          <div class="sales">
-            <div class="status">
-              <div class="info">
-                <h2>Faculty: </h2>
-                <h3>$65,024</h3>
-              </div>
-            </div>
-          </div>
-          <div class="sales">
-            <div class="status">
-              <div class="info">
-                <h2>Department: </h2>
-                <h3>$65,024</h3>
-              </div>
+
+        <div class="singleBar">
+          <div class="user-list">
+            <div class="Ctitle">
+                <h2>Faculty / Department: </h2>
+                <h3>'.$row['course_name'].'</h3>    
             </div>
           </div>
         </div>
@@ -122,7 +145,7 @@
           <div class="user-list">
             <div class="Ctitle">
                 <h2>Course Title: </h2>
-                <h3>$65,024</h3>    
+                <h3>'.$row['course_name'].'</h3>    
             </div>
           </div>
         </div>
@@ -133,7 +156,7 @@
             <div class="status">
               <div class="info2">
                 <h2>Date</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['submitted_date'].'</h3>
               </div>
             </div>
           </div>
@@ -141,7 +164,7 @@
             <div class="status">
               <div class="info2">
                 <h2>Batch</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['batch'].'</h3>
               </div>
             </div>
           </div>
@@ -149,7 +172,7 @@
             <div class="status">
               <div class="info2">
                 <h2>Course Code</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['course_code'].'</h3>
               </div>
             </div>
           </div>
@@ -157,15 +180,15 @@
             <div class="status">
               <div class="info2">
                 <h2>Students</h2>
-                <h3>$65,024</h3>
+                <h3>'.$row['submitted_date'].'</h3>
               </div>
             </div>
           </div>
         </div>
-        <!-- End of Form specification -->
+
 
         <br>
-        <!-- Recent Orders Table -->
+
         <div class="recent-orders">
           <h2>Teaching, Training, Learning Process</h2>
           <table>
@@ -179,7 +202,6 @@
             <tbody></tbody>
           </table>
         </div>
-        <!-- End of Recent Orders -->
         <br><br>
 
         <!-- Start of Learning Environment / Infrastructure -->
@@ -263,6 +285,11 @@
           </div>
         </div>
         <br><br>
+          ';
+          }
+        ?>
+
+        
       </main>
       <!-- End of Main Content -->
     </div>
