@@ -32,7 +32,7 @@
         </div>
 
         <div class="sidebar">
-          <a href="index.html" class="active">
+          <a href="index.php" class="active">
             <span class="material-icons-sharp"> home </span>
             <h3>Home</h3>
           </a>
@@ -60,10 +60,10 @@
             <h3>Account Details</h3>
           </a>
 
-          <a href="report.html">
+          <!-- <a href="report.html">
             <span class="material-icons-sharp"> report_gmailerrorred </span>
             <h3>Reports</h3>
-          </a>
+          </a> -->
 
           <a href="settings.html">
             <span class="material-icons-sharp"> settings </span>
